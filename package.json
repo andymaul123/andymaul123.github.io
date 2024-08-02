@@ -1,0 +1,26 @@
+{
+  "name": "andymaul123.github.io",
+  "version": "1.0.0",
+  "description": "GitHub Pages Website",
+  "main": "index.js",
+  "scripts": {
+    "start": "nanogen start",
+    "build": "nanogen build",
+    "css": "sass src/sass/index.scss src/assets/css/styles.css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/andymaul123/andymaul123.github.io.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/andymaul123/andymaul123.github.io/issues"
+  },
+  "homepage": "https://github.com/andymaul123/andymaul123.github.io#readme",
+  "devDependencies": {
+    "nanogen": "^0.4.2",
+    "sass": "^1.77.8"
+  }
+}
