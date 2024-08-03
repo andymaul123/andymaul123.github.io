@@ -1,0 +1,15 @@
+---
+layout: default
+title: art
+---
+
+<div class="home-featured-posts">
+    <h1 class="bottom-border">Art</h1>
+    <p>Click a card below to view the full gallery for that medium.</p>
+    <div class="featured-posts-wrapper">
+        <%- include('partials/post-preview-block', {title: "Oils", url: "/art/oils", image: "image/screenshot-title-screen.png"}) %>
+        <%- include('partials/post-preview-block', {title: "Inks", url: "/art/inks", image: "image/screenshot-title-screen.png"}) %>
+        <%- include('partials/post-preview-block', {title: "Digital", url: "/art/digital", image: "image/screenshot-title-screen.png"}) %>
+        <%- include('partials/post-preview-block', {title: "Pixel", url: "/art/pixel", image: "image/screenshot-title-screen.png"}) %>
+    </div>
+</div>

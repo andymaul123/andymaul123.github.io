@@ -37,6 +37,9 @@ p {
     letter-spacing: 0.02rem;
     margin-bottom: 3rem;
 }
+b, strong {
+    font-weight: 700;
+}
 /* Links
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 a {
@@ -148,7 +151,6 @@ a {
 }
 .post-preview-block-title {
     background-color: $accentGray;
-    color: $textGray;
     padding: 1rem;
 }
 
@@ -159,85 +161,7 @@ a {
     display: flex;
     flex-direction: row;
 }
-// Using Salvattore library for grids
-// .grid {
-//     margin-bottom: 3rem;
-// }
 
-
-// .grid-item {
-//     width: 100%;
-//     position: relative;
-
-//     a {
-//         display: block;
-//     }
-//     img {
-//         width: 100%;
-//         display: block;
-//     }
-//     .animation-wrapper {
-//         overflow: hidden;
-//         width: 100%;
-//     }
-//     .animation-center, .animation-left {
-//         transform: scale(1);
-//         transition: all 2.5s ease;
-//     }
-//     &:hover {
-//         .overlay {
-//             display: block;
-//             visibility: visible;
-//             opacity: 1;
-//             height: calc(100% - 1px);
-//             width: 100%;
-//             transition: visibility 0s, opacity 0.5s linear;
-//         }
-//         .animation-center, .animation-left {
-//             transform: scale(1.1);
-//             transition: all 2.5s ease;
-//         }
-//         .animation-center {
-//             transform-origin: center center;
-//         }
-//         .animation-left {
-//             transform-origin: left center;
-//         }
-//     }
-//     .overlay {
-//         position: absolute;
-//         top: 0;
-//         left: 1px;
-//         height: calc(100% - 10px);
-//         width: calc(100% - 8px);
-//         background: -webkit-linear-gradient(hsla(0,0%,100%,0) 67%, hsla(0,0%,0%,0.85) 99%, hsla(0,0%,0%,0.85) 100%);
-//         background: -o-linear-gradient(hsla(0,0%,100%,0) 67%, hsla(0,0%,0%,0.85) 99%, hsla(0,0%,0%,0.85) 100%);
-//         background: linear-gradient(hsla(0,0%,100%,0) 67%, hsla(0,0%,0%,0.85) 99%, hsla(0,0%,0%,0.85) 100%);
-//         pointer-events: none;
-//     }
-//     .overlay-info {
-//         position: relative;
-//         width: 100%;
-//         height: 100%;
-//         display: block;
-//         .info-link, .info-icon {
-//             position: absolute;
-//             font-size: 2rem;
-//             font-family: $title;
-//             color: $yellow;
-//             pointer-events: auto;
-//             padding: 0;
-//         }
-//         .info-link {
-//             bottom: 5px;
-//             left: 5%;
-//         }
-//         .info-icon {
-//             bottom: 2px;
-//             right: 5%;
-//         }
-//     }
-// }
 .footer {
     border-top: 1px solid $accentGray;
     padding: 1rem 2rem;
@@ -452,7 +376,7 @@ code {
     .sub-head {
         margin-bottom: 6rem;
         font-family: $monospace;
-        color: $yellow;
+        color: $textGray;
         font-size: 2rem;
         @media(max-width: 919px) {
             margin-bottom: 3rem;
@@ -500,7 +424,7 @@ code {
         }
         h3, h3 a {
             font-size: 1.8rem;
-            font-family: $monospace;
+            font-family: $title;
             color: $yellow;
             margin: 0 0 0.5rem 0;
         }
@@ -510,8 +434,17 @@ code {
                 transition: all 0.5s linear;
             }
         }
+        h4 {
+            font-size: 1.8rem;
+            font-family: $title;
+            color: $textGray;
+            margin: 0 0 0.5rem 2rem;
+        }
         p {
-            margin: 0;
+            margin: 0 0 1rem 0;
+        }
+        ul {
+            margin: 0 0 0.5rem 2rem;
         }
         .position {
             margin: 0 0 1rem 0;
@@ -536,6 +469,10 @@ code {
             margin-right: 0.5rem;
         }
     }
+}
+.print-download {
+    margin-bottom: 1rem;
+    text-align: right;
 }
 
 @media(max-width: 767px){

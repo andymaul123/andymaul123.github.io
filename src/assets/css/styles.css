@@ -1028,6 +1028,10 @@ p {
   margin-bottom: 3rem;
 }
 
+b, strong {
+  font-weight: 700;
+}
+
 /* Links
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 a {
@@ -1149,7 +1153,6 @@ a:hover {
 
 .post-preview-block-title {
   background-color: #333;
-  color: #dcdcdc;
   padding: 1rem;
 }
 
@@ -1392,7 +1395,7 @@ code {
 .resume .sub-head {
   margin-bottom: 6rem;
   font-family: "Courier New", Courier, monospace;
-  color: #ffff99;
+  color: #dcdcdc;
   font-size: 2rem;
 }
 @media (max-width: 919px) {
@@ -1453,7 +1456,7 @@ code {
 }
 .resume .info-block h3, .resume .info-block h3 a {
   font-size: 1.8rem;
-  font-family: "Courier New", Courier, monospace;
+  font-family: "Ovo", sans-serif;
   color: #ffff99;
   margin: 0 0 0.5rem 0;
 }
@@ -1461,8 +1464,17 @@ code {
   color: #99ccff;
   transition: all 0.5s linear;
 }
+.resume .info-block h4 {
+  font-size: 1.8rem;
+  font-family: "Ovo", sans-serif;
+  color: #dcdcdc;
+  margin: 0 0 0.5rem 2rem;
+}
 .resume .info-block p {
-  margin: 0;
+  margin: 0 0 1rem 0;
+}
+.resume .info-block ul {
+  margin: 0 0 0.5rem 2rem;
 }
 .resume .info-block .position {
   margin: 0 0 1rem 0;
@@ -1487,6 +1499,11 @@ code {
 }
 .resume .resume-icons a {
   margin-right: 0.5rem;
+}
+
+.print-download {
+  margin-bottom: 1rem;
+  text-align: right;
 }
 
 @media (max-width: 767px) {
