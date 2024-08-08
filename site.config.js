@@ -6,6 +6,6 @@ module.exports = {
   site: {
     title: "Andrew Maul",
     year: "2024",
-    latest: "000-test-post"
+    latest: "2024-08-11_website-relaunch"
   }
 };

@@ -144,7 +144,19 @@ a {
         width: 100%;
         max-width: 1024px;
     }
-
+}
+.post-preview-block .writing {
+    width: 100%;
+    height: 306px; //mystery 6px gap
+    padding: 2rem;
+    box-sizing: border-box;
+}
+.post-preview-block .writing h1 {
+    text-align: left;
+}
+.genre-time h2 {
+    font-size: 2.5rem;
+    font-style: italic;
 }
 .post-preview-block-image {
     width: 100%;
@@ -158,12 +170,38 @@ a {
 .post-preview-block-title {
     background-color: $accentGray;
     padding: 1rem;
-    margin-top: -6px; //not sure why a gap appears?
+    margin-top: -6px; //mystery 6px gap
 }
 .home-about-wrapper {
     display: flex;
     flex-direction: row;
 }
+
+.writing-entries-wrapper {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+}
+.writing-entries-wrapper .writing-entry {
+    width: 48%;
+    max-width: 600px;
+    min-width: 400px;
+
+    h2, h2 a {
+        font-family: $title;
+        font-size: 2rem;
+        margin: 0;
+        padding: 0;
+    }
+    span {
+        font-style: italic;
+        margin-bottom: 1rem;
+        display: block;
+    }
+}
+
 
 .footer {
     border-top: 1px solid $accentGray;

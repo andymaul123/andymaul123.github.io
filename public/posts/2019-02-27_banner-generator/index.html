@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Andrew Maul</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="icon" type="image/x-icon" href="/image/favicon.ico" >
+    <link href="https://fonts.googleapis.com/css?family=Muli" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Ovo" rel="stylesheet">
+  </head>
+<body>
+  <div class="container">
+    <section>
+        <div class="row">
+            <div class="nine columns blog">
+                <nav class="new-nav">
+    <a href="/" class="no-underline shadows ">home</a>
+    <a href="/projects" class="no-underline shadows ">projects</a>
+    <a href="/art" class="no-underline shadows ">art</a>
+    <a href="/posts/2024-08-11_website-relaunch" class="no-underline shadows active">blog</a>
+    <a href="/resume" class="no-underline shadows ">résumé</a>
+</nav>
+                <h1>EDH Banner Generator</h1>
+                <div class="post-date right">February 2019</div>
+                <div>
+<p><span class="dropcap">C</span>ustomization is a large part of the culture surrounding <a href="https://mtg.fandom.com/wiki/Commander_(format)">EDH </a>(aka Commander), a format of the trading card game Magic the Gathering. Players may spend years, and thousands of dollars, perfecting their deck; from buying special cases and dice, to getting their cards physically altered.</p>
+
+<p>The EDH Banner Generator is my contribution to this spirit of personalization.</p>
+
+<p>It's a node.js app that consumes a text list, provided by the user, and creates an image like the one below. The intent was to create a tool that players could use to make their own banner images for forums, deck list websites, and so on.</p>
+
+<p>From a technical perspective the generator relies on two important pieces: <a href="https://www.npmjs.com/package/jimp" target="_blank">JIMP</a> (Javascript Image Manipulation Program) and <a href="https://scryfall.com/docs/api" target="_blank">Scryfall's REST api</a> . The app parses the list, retrieves data from the api, and composites the image by plotting the cards along coordinates. There are a small list of configurations available, too.</p>
+
+<p>You can grab the app from my <a href="https://github.com/andymaul123/edh-banner-generator" target="_blank">Github</a> and give it a go yourself!</p>
+
+
+<a href="/image/projects/banner-generator.png"><img src="/image/projects/banner-generator.png" class="outline shadows photo"></a>
+
+</div>
+            </div>
+            
+            <div class="three columns archives">
+                <h2>Archives</h2>
+                <ul>
+    <li>
+        <a href="/posts/2024-08-11_website-relaunch">Website Re-launch!</a>
+        <br />
+        <em>Aug 2024</em>
+    </li>
+    <li>
+        <a href="/posts/2024-08-07_dunes-and-dusk">Dunes & Dusk</a>
+        <br />
+        <em>Aug 2024</em>
+    </li>
+    <li>
+        <a href="/posts/2022-06-19_studying-the-masters">Studying the Masters</a>
+        <br />
+        <em>Jun 2022</em>
+    </li>
+    <li>
+        <a href="/posts/2019-06-26_adventure-js">Adventure.js</a>
+        <br />
+        <em>Jun 2019</em>
+    </li>
+    <li>
+        <a href="/posts/2019-02-27_banner-generator">EDH Banner Generator</a>
+        <br />
+        <em>Feb 2019</em>
+    </li>
+    
+</ul>
+            </div>
+        </div>
+    </section>
+  </div>
+  <footer class="footer">
+  <div class="row">
+    <div class="three columns left">
+      <div class="email"> <span class="icon-envelope2 icon"></span> <span class="email-address">andymaul123@gmail.com</span></div>
+    </div>
+  <div class="six columns center footer-content">
+      &copy; Andrew Maul 2024. Made with <a href="https://github.com/dhg/Skeleton" target="new" class="no-underline">Skeleton</a>, <a href="https://github.com/doug2k1/nanogen/" class="no-underline" target="new">Nanogen</a>, <a href="https://prismjs.com/" class="no-underline" target="new">Prism.js</a>, and <a href="https://icomoon.io/" class="no-underline" target="new">IcoMoon</a>.
+    </div>
+  <div class="three columns right social">
+        <a href="https://github.com/andymaul123" target="new" class="no-underline footer-link"><span class="icon-github icon"></span></a>
+        <a href="https://www.linkedin.com/in/andymaul" target="new" class="no-underline footer-link"><span class="icon-linkedin2 icon"></span></a>
+    </div>
+  </div>
+</footer>
+
+
+  <!-- Prism.js syntax highlighting -->
+<script type="text/javascript" src="/js/prism.js"></script>
+
+</body>
+</html>

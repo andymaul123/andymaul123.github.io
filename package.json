@@ -4,7 +4,7 @@
   "description": "GitHub Pages Website",
   "main": "index.js",
   "scripts": {
-    "start": "nanogen start",
+    "start": "sass src/sass/index.scss src/assets/css/styles.css && nanogen start",
     "build": "nanogen build",
     "css": "sass src/sass/index.scss src/assets/css/styles.css"
   },
