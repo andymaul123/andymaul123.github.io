@@ -3,13 +3,13 @@ layout: default
 title: projects
 ---
 
-<div class="home-featured-posts">
+<div class="post-card-gallery">
     <h1 class="bottom-border">Projects</h1>
     <p>A little collection of games, writing, and other randomness. Updated every now and then.</p>
     <div class="featured-posts-wrapper">
-        <%- include('partials/post-preview-block', {title: "Dunes & Dusk Web Game", url: "/posts/2024-08-07_dunes-and-dusk", image: "/image/projects/dunes-and-dusk-intro.gif", coords: "0 0"}) %>
-        <%- include('partials/post-preview-block', {title: "Short Fiction", url: "/projects/writing", image: "/image/projects/writing-intro.gif"}) %>
-        <%- include('partials/post-preview-block', {title: "Adventure.js", url: "/posts/2019-06-26_adventure-js", image: "/image/projects/dev-thumb.gif", coords: "0 0"}) %>
-        <%- include('partials/post-preview-block', {title: "Banner Generator", url: "/posts/2019-02-27_banner-generator", image: "/image/projects/banner-generator.png"}) %>
+        <%- include('partials/featured-post-card', {title: "Dunes & Dusk Web Game", url: "/posts/2024-08-07_dunes-and-dusk", image: "/image/projects/dunes-and-dusk-intro.gif", coords: "0 0"}) %>
+        <%- include('partials/featured-post-card', {title: "Short Fiction", url: "/projects/writing", image: "/image/projects/writing-intro.gif"}) %>
+        <%- include('partials/featured-post-card', {title: "Adventure.js", url: "/posts/2019-06-26_adventure-js", image: "/image/projects/dev-thumb.gif", coords: "0 0"}) %>
+        <%- include('partials/featured-post-card', {title: "Banner Generator", url: "/posts/2019-02-27_banner-generator", image: "/image/projects/banner-generator.png"}) %>
     </div>
 </div>

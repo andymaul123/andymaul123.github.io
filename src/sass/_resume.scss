@@ -1,0 +1,153 @@
+/* About Page
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+.resume {
+    position: relative;
+    background: $resumeBlack;
+    width: 100%;
+    padding: 3rem;
+    margin-bottom: 2rem;
+    @media (max-width:549px){
+        width: auto;
+        padding: 0;
+        border-width: 0!important;
+        &:before{
+            display: none!important;
+        }
+        &:after {
+            display: none!important;
+        }
+    }
+    &:before {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 0;
+        border-width: 0 4rem 4rem 0;
+        border-style: solid;
+        border-color: $darkGray $darkGray $accentGray $resumeGray;
+        -webkit-box-shadow: 0 0.1rem 0.1rem rgba(0, 0, 0, 0.3), -0.1rem 0.1rem 0.1rem rgba(0, 0, 0, 0.2);
+        -moz-box-shadow: 0 0.1rem 0.1rem rgba(0, 0, 0, 0.3), -0.1rem 0.1rem 0.1rem rgba(0, 0, 0, 0.2);
+        box-shadow: 0 0.1rem 0.1rem rgba(0, 0, 0, 0.3), -0.1rem 0.1rem 0.1rem rgba(0, 0, 0, 0.2);
+        display: block;
+        width: 0;
+    }
+    &:after {
+        content: "";
+        position: absolute;
+        top: -1px;
+        right: -1px;
+        border-width: 4rem 0 0 4rem;
+        border-style: solid;
+        border-color: $darkGray $darkGray $resumeGray $resumeGray;
+        display: block;
+        width: 0;
+    }
+    .logo {
+        width: 100%;
+        max-width: 15rem;
+        @media (max-width:549px){
+            display: none;
+        }
+    }
+    .sub-head {
+        margin-bottom: 6rem;
+        font-family: $monospace;
+        color: $textGray;
+        font-size: 2rem;
+        @media(max-width: 919px) {
+            margin-bottom: 3rem;
+        }
+        @media (max-width:549px){
+            margin-bottom: 2rem;
+            font-size: 1.6rem;
+        }
+    }
+    h1 {
+        margin-bottom: 0;
+        text-align: left;
+        @media(max-width: 919px) {
+            font-size: 4rem;
+        }
+        @media (max-width:549px){
+            font-size: 3rem;
+        }
+    }
+    h2 {
+        font-size: 2rem;
+        font-family: $title;
+        color: $white;
+        border-bottom: 0.1rem solid $accentGray;
+        padding-bottom: 0.5rem;
+    }
+    .skills {
+        margin-bottom: 3rem;
+    }
+    .skills-list {
+        margin: 0;
+        vertical-align: top;
+        @media (max-width:549px){
+            display: block;
+        }
+        li {
+            display: block;
+        }
+    }
+    .info-block {
+        padding-left: 2rem;
+        margin-bottom: 3rem;
+        @media (max-width:549px){
+            padding-left: 1rem;
+        }
+        h3, h3 a {
+            font-size: 1.8rem;
+            font-family: $title;
+            color: $yellow;
+            margin: 0 0 0.5rem 0;
+        }
+        h3 a {
+            &:hover {
+                color: $blue;
+                transition: all 0.5s linear;
+            }
+        }
+        h4 {
+            font-size: 1.8rem;
+            font-family: $title;
+            color: $textGray;
+            margin: 0 0 0.5rem 2rem;
+        }
+        p {
+            margin: 0 0 1rem 0;
+        }
+        ul {
+            margin: 0 0 0.5rem 2rem;
+        }
+        .position {
+            margin: 0 0 1rem 0;
+            em {
+                margin-right: 2rem;
+                @media (max-width:549px){
+                    margin-right: auto;
+                    display: block;
+                }
+            }
+        }
+    }
+    .resume-icons {
+        float: right;
+        &:after {
+            clear: both;
+        }
+        .icon {
+            font-size: 2rem;
+        }
+        a {
+            margin-right: 0.5rem;
+        }
+    }
+}
+.print-download {
+    margin-bottom: 1rem;
+    text-align: right;
+}
+

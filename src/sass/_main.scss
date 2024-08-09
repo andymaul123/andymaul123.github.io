@@ -1,0 +1,161 @@
+/* These styles are overrides to the base skeleton template */
+
+body {
+    font-family: $body;
+    color: $textGray;
+    background-color: $darkGray;
+    font-size: 1.6rem;
+    line-height: 1.5;
+}
+.container {
+    margin-top: 3rem;
+    max-width: 1200px;
+    // @media(min-width: 1920px) {
+    //     max-width: 1500px;
+    // }
+    body.about & {
+        max-width: 1140px;
+    }
+}
+blockquote {
+    border-left: 2px solid $accentGray;
+    padding-left: 2rem;
+}
+
+/* Typography
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+h1, h2, h3, h4, h5, h6 {
+    font-family: $title;
+    color: $white;
+    letter-spacing: normal;
+    margin-bottom: 3rem;
+}
+p {
+    font: 1.5rem/2.1rem $body;
+    font-weight: 300;
+    text-align: justify;
+    letter-spacing: 0.02rem;
+    margin-bottom: 3rem;
+}
+b, strong {
+    font-weight: 700;
+}
+/* Links
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+a {
+  font-family: $body;
+  color: $yellow;
+  text-decoration: none;
+
+  &:hover {
+    color: $blue;
+    transition: all 0.5s linear;
+  }
+}
+/* Misc
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+.logo {
+    img {
+        width: 25%;
+        margin: 3rem;
+        max-width: 25rem;
+        @media(max-width:767px) {
+            margin: 1rem;
+        }
+    }
+}
+.new-nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 5rem;
+    a {
+        font-size: 2rem;
+        text-decoration: none;
+        font-family: $body;
+        text-transform: uppercase;
+    }    
+}
+.header-animation {
+    margin-bottom: 5rem;
+    .typing {
+        width: 50%;
+        font-family: $monospace;
+        text-align: center;
+        background: $black;
+        border-radius: 5px;
+        border: 1px solid $accentGray;
+        color: #ffff99;
+        font-size: 2rem;
+        padding: 5px 10px;
+        transition: all 2s linear;
+        @media(max-width:1024px) {
+            width: 75%;
+        }
+        &.fadeToWhite {
+            color: $white;
+            border-color: $darkGray;
+            background: $darkGray;
+        }
+    }
+    @media(max-width: 767px) {
+        display: none;
+    }
+}
+
+/* Footer
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+.footer {
+    border-top: 1px solid $accentGray;
+    padding: 1rem 2rem;
+    letter-spacing: 0.05rem;
+    margin-top: 3rem;
+    .footer-link {
+        font-size: 1.3rem;
+    }
+    @media(max-width:919px) {
+        .columns {
+            display: block;
+            width: 100%;
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+        .email {
+            text-align: center;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .social a {
+            margin-right: 2.5rem;
+        }
+    }
+}
+.footer-content {
+    padding: 0.5rem 0 0 0;
+    font-size: 1.3rem;
+}
+.email {
+    display: table;
+}
+.icon-envelope, .icon-envelope2 {
+    display: table-cell;
+    width: 3.5rem;
+    vertical-align: middle;
+    font-size: 3rem;
+}
+.email-address {
+    display: table-cell;
+    vertical-align: middle;
+    font-size: 1.3rem;
+    font-weight: 300;
+    letter-spacing: 0.02rem;
+}
+.social {
+    a {
+        margin-right: 1.5rem;
+        &:last-child {
+            margin-right: 0;
+        }
+    }
+}
+

@@ -3,13 +3,13 @@ layout: default
 title: art
 ---
 
-<div class="home-featured-posts">
+<div class="post-card-gallery">
     <h1 class="bottom-border">Art</h1>
     <p>Click a card below to view the full gallery for that medium.</p>
     <div class="featured-posts-wrapper">
-        <%- include('partials/post-preview-block', {title: "Oils", url: "/art/oils", image: "/image/art/oils/winter-trees_2021.jpg"}) %>
-        <%- include('partials/post-preview-block', {title: "Inks", url: "/art/inks", image: "/image/art/inks/inktober-selections_2021.jpg", coords: "0 10%"}) %>
-        <%- include('partials/post-preview-block', {title: "Digital", url: "/art/digital", image: "/image/art/digital/landscape_desert-storm_2017.jpg"}) %>
-        <%- include('partials/post-preview-block', {title: "Pixel", url: "/art/pixel", image: "/image/art/pixel/fakemon_2023.png", coords: "0 0"}) %>
+        <%- include('partials/featured-post-card', {title: "Oils", url: "/art/oils", image: "/image/art/oils/winter-trees_2021.jpg"}) %>
+        <%- include('partials/featured-post-card', {title: "Inks", url: "/art/inks", image: "/image/art/inks/inktober-selections_2021.jpg", coords: "0 10%"}) %>
+        <%- include('partials/featured-post-card', {title: "Digital", url: "/art/digital", image: "/image/art/digital/landscape_desert-storm_2017.jpg"}) %>
+        <%- include('partials/featured-post-card', {title: "Pixel", url: "/art/pixel", image: "/image/art/pixel/fakemon_2023.png", coords: "0 0"}) %>
     </div>
 </div>

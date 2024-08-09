@@ -3,21 +3,25 @@ layout: default
 title: home
 ---
 
+
+<h1>Hi, I'm Andy.</h1>
 <div class="home-about">
-    <h1>Hi, I'm Andy.</h1>
-    <div class="home-about-wrapper">
+    <div class="left">
         <p>I'm an engineer at <a href="https://www.playstation.com/en-us/">PlayStation</a>. This is my little corner of the internet. I have been developing on the client side professionally since 2014. Prior to that I worked in education and the games industry. <br /><br />While I'm not at work you'll find me engaged in one of my (too) many hobbies.</p>
+    </div>
+    <div class="right">
         <img class="portrait outline" src="/image/portrait.jpg"/>
     </div>
 </div>
 
-<div class="home-featured-posts">
+
+<div class="post-card-gallery">
     <h1 class="bottom-border">Featured Posts</h1>
     <div class="featured-posts-wrapper">
-        <%- include('partials/post-preview-block', {title: "Dunes & Dusk", url: "/posts/2024-08-07_dunes-and-dusk", image: "/image/projects/dunes-and-dusk-intro.gif"}) %>
-        <%- include('partials/post-preview-block', {title: "Studying the Masters", url: "/posts/2022-06-19_studying-the-masters", image: "image/art/digital/study_alpine-lake_2019.jpg"}) %>
-        <%- include('partials/post-preview-block', {title: "Test Title", url: "/posts/001", image: "image/screenshot-title-screen.png"}) %>
-        <%- include('partials/post-preview-block', {title: "Test Title", url: "/posts/001", image: "image/screenshot-title-screen.png"}) %>
+        <%- include('partials/featured-post-card', {title: "Dunes & Dusk", url: "/posts/2024-08-07_dunes-and-dusk", image: "/image/projects/dunes-and-dusk-intro.gif"}) %>
+        <%- include('partials/featured-post-card', {title: "Studying the Masters", url: "/posts/2022-06-19_studying-the-masters", image: "image/art/digital/study_alpine-lake_2019.jpg"}) %>
+        <%- include('partials/featured-post-card', {title: "Test Title", url: "/posts/001", image: "image/screenshot-title-screen.png"}) %>
+        <%- include('partials/featured-post-card', {title: "Test Title", url: "/posts/001", image: "image/screenshot-title-screen.png"}) %>
     </div>
 </div>
 
