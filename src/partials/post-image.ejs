@@ -1,6 +1,4 @@
-<div class="post-image <%= locals.float ? float : '' %> <%= imgsize %>">
-    <a href="<%= imgpath %>" class="post-image-link">
-        <img src="<%= imgpath %>" class="post-image-picture outline"/>
-        <span class="post-image-caption"><%= locals.caption ? caption : '' %></span>
-    </a>
-</div>
+<a href="<%= imgpath %>" class="post-image <%= locals.float ? float : '' %> <%= locals.imgsize ? imgsize : 'full' %>">
+    <img src="<%= imgpath %>" class="post-image-picture outline"/>
+    <span class="post-image-caption"><%= locals.caption ? caption : '' %></span>
+</a>

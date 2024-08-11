@@ -1,15 +1,130 @@
 ---
 layout: post
-title: Dunes & Dusk 
-date: August 2024
+title: "Art Jam: Experiments with Pixelization" 
+date: July 2023
 ---
 
-<p><span class="dropcap">M</span>y recent project has been exploring the creation of games using web technology. I have a longstanding appreciation for old text adventures, so when I discovered <a href="https://htmx.org/" target="_blank">HTMX</a> a thought occurred to me.</p>
+<p>
+    <span class="dropcap">I</span> recently had the opportunity to try and answer a question I've thought about over the years. Well, it's more of a series of questions. But it goes something like this:
+</p>
 
-<p>Point and Click adventures, the genre of games popularized in the late eighties and early nineties, could be an excellent foray into making games on the web. They share fundamental characteristics with websites: the user clicks something, the server responds, they click again, etc.</p>
+<blockquote>
+    Consider a subject, and for the sake of this imaginary prompt, let's say the subject is a slice of watermelon. If our watermelon was portrayed in different visual mediums, like a screenshot of a 3d rendered model versus an oil painting, each would look quite different. There would be little in common with these two images except that their subject was a slice of watermelon.
+    <br /><br />
+    
+    Now imagine you scaled down those mental images of watermelons: 25%, 50%, 75%. Each time they are scaled down the visual information is destroyed to a certain extent. Scaled all the way to just 1px and they'd be identical, or close enough that it wouldn't matter. That means somewhere in the downsampling process there exists a lowest common denominator between the slices of watermelon, where they'd become similar enough to disregard the source medium of representation.
+    <br /><br />
+    
+    <strong>What would they look like?</strong>
+</blockquote>
 
-<p>What started as research into HTMX has turned into a fully-fledged game. It's still very much a work-in-progress, but if you're interested, you can learn more on the project's <a href="https://github.com/andymaul123/pca-engine" target="_blank">Github</a> page. </p>
+<p>I sought to answer that question.</p>
 
-<a href="/image/projects/dunes-and-dusk-intro.gif"><img src="/image/projects/dunes-and-dusk-intro.gif" class="outline shadows photo"></a>
+<h2>The Constraints</h2>
+
+<p>Creativity works best with restrictions. I defined  loose, fictional criteria for the experiment:</p>
+<ol>
+    <li>The goal is to learn <a href="https://kronbits.itch.io/pixatool" target="_blank">PixaTool</a> first and foremost. Results don't matter.</li>
+    <li>Length of time would shape the decisions on quality, automation, etc. A faux deadline of one week was chosen</li>
+    <li>The subjects would be “fantasy NPC portraits in a retro CRPG game”, and I needed to make 100 of them in the week</li>
+    <li>They'd be raster images in pixel art style at 256px</li>
+    <li>The software I'd use would be Adobe Photoshop CS6, PixaTool, and <a href="https://www.aseprite.org/" target="_blank">Aseprite</a>. I would end up using just the first two.</li>
+</ol>
+<p>With that list of constraints in place I started exploring possibilities.</p>
+
+<h2>Source Portraits</h2>
+
+<p>I opted for three source images to use as my test subjects. I wanted diversity in the subject portrayed, the backgrounds, lighting, and medium, but wanted to keep them to similar poses and have a large enough resolution to crop down to bust portraits. I cropped each one and started running them through different tests in both Photoshop and PixaTool.
+<br/><br />
+<em>I don't own copyright to these images.</em>
+</p>
+
+<div class="post-content-three-items">
+    <%- include('partials/post-image', {imgpath: "/image/posts/2023-07-01_art-jam-experiments-with-pixelization/source_game.jpg", caption: "Source: Game"}) %>
+    <%- include('partials/post-image', {imgpath: "/image/posts/2023-07-01_art-jam-experiments-with-pixelization/source_photo.jpeg", caption: "Source: Photo"}) %>
+    <%- include('partials/post-image', {imgpath: "/image/posts/2023-07-01_art-jam-experiments-with-pixelization/source_painting.png", caption: "Source: Painting"}) %>
+</div>
 
 
+<%- include('partials/post-image', {imgpath: "/image/posts/2023-07-01_art-jam-experiments-with-pixelization/cropped-portraits.jpg", caption: "All three cropped to a square."}) %>
+
+
+<h2>Tests</h2>
+
+<p>With only a week in my imaginary deadline I really had to dive in and start learning as much, and as quickly, as possible. I won't list everything I tried here, but there were a lot of attempts; some of them bore fruit.</p>
+
+<h3>Color Palette</h3>
+
+<div class="post-content-two-items">
+    <div>
+        <p>One of the key areas I felt was necessary toward imposing a style on these images was to force them into a constrained color palette. Photoshop offered gradient maps and indexed color as options, which necessitated learning about several different files types to get colors moving between different software: .asc, .ase, .pal, .act…the list goes on. PixaTool offered the easiest method with its Palette feature, a trend that would continue throughout the rest of testing. I don't know what algorithm it uses, but it seemed similar to indexing colors in Photoshop.</p>
+        <p><a href="https://lospec.com/palette-list" target="_blank">Lospec</a> makes it easy to browse palettes, and I already had favorites saved that I use in other projects. I ran through a wide range to get a sense of what worked and what didn't. I would like to go back and learn more on this topic, as I stumbled along mostly by how the output looked without an understanding of why certain ones worked and others didn't. In the end it was a 32-color palette that came with PixaTool that I liked the most, with a cryptic (to me, at least) name of justing-girl-32.</p>
+        <%- include('partials/post-image', {imgpath: "/image/posts/2023-07-01_art-jam-experiments-with-pixelization/justing-girl-32.jpg", caption: "Winner!"}) %>
+    </div>
+
+    <%- include('partials/post-image', {imgpath: "/image/posts/2023-07-01_art-jam-experiments-with-pixelization/palettes.jpg", caption: "Top to Bottom: Quake_192, 128matriax, Vinik24, Reha16, Nyx8, and justing-girl-32."}) %>
+</div>
+
+<h3>Downsampling</h3>
+
+<p>PixaTool has various inputs controlling things like dithering, pixelization steps, contrast, etc. I spent the first two days of the week simply playing with settings and color palettes, iterating and evolving as I found qualities I liked. With the stipulation of producing 100 NPC portraits in my remaining days, I opted for choices that skewed towards middle-grounds. I wanted something that looked *good enough* across a large array of potential source images rather than trying to dial in for highest quality.
+<br /><br />
+If you have PixaTool and want to explore the settings you can <a href="https://drive.google.com/file/d/1K7EKfFnOPIY5HINWnL0zQi86WGN0Wulw/view?usp=drive_link" target="_blank">import the preset file</a>.</p>
+
+
+<%- include('partials/post-image', {imgpath: "/image/posts/2023-07-01_art-jam-experiments-with-pixelization/nyx8.jpg", caption: "I have folders upon folders of exports, like this Nyx8 palette test."}) %>  
+
+
+<h3>Style Choices</h3>
+
+<div class="post-content-two-items">
+    <div>
+        <p>It became clear early on that I couldn't rely entirely on destroying fidelity to unify images stylistically. I also had to employ techniques to mask differences and blend the different source images together.</p>
+        <ul>
+            <li>Doing a fast-and-loose marquee around each subject and swapping the background for a set piece helped anchor them into a cohesive whole. This step was dangerous, though, because any kind of manual effort on my part would not be scalable. Photoshop CC purportedly has AI-assisted features that would be a helpful in this regard. An action that could perform a sloppy lasso and delete would save lots of time.</li>
+            <li>Using Photoshop's Render → Lighting plugin I threw a spotlight on each portrait that helped unify the lighting (to some degree).</li>
+            <li>A Filter helped blur out differences in the source mediums (I used Dry Brush).</li>
+        </ul>
+        <p>I also created a simple border to go around each piece as if it were part of some game UI. Overall, the only steps that couldn't be easily automated into a script were the selection portions up front, and for this experiment, I am okay with that.</p>
+    </div>
+
+    <%- include('partials/post-image', {imgpath: "/image/posts/2023-07-01_art-jam-experiments-with-pixelization/scenery-standalone.jpg", caption: "Cropped game asset background used as the setting behind each portrait. I could see having several options to mix-and-match."}) %>
+</div>
+
+<h2>Results</h2>
+
+
+<%- include('partials/post-image', {imgpath: "/image/posts/2023-07-01_art-jam-experiments-with-pixelization/final-results.jpg", caption: "I'm happy with the outcome here. These ladies look like they had a quest or rumors to share with the player."}) %>
+
+
+<p>I was shooting for that '90s-era CRPG' look, and I feel like the outputs here hit that mark fairly well. With actions to automate the steps in Photoshop, and the settings saved in a preset in PixaTool, the 'labor time' for each image was less than two minutes. That's a scalable number for this contrived scenario, and at that rate, I could create the 100 portraits in an afternoon if I had the sources ready to go.</p>
+
+<h3>Extrapolating Sources</h3>
+
+<div class="post-content-two-items">
+    <div>
+        <p>Excited that I had something producing mediocre-quality results, I wanted to grab more images to feed into it. With three distinct source mediums in the original test I was confident that most sources could work. In a professional scenario this would be purchased stock photos, perhaps, or stock assets purchasable on a marketplace. For my continued testing, though, I simply grabbed whatever the search engine offered up. </p>
+        <p>Specifically, I wanted to get a different kind of subject that demonstrate whether or not this pipeline was robust enough to accept it. I grabbed digital art of a knight and was pleasantly surprised.</p>
+        <p>At this point I realized the only time-sink left would be sourcing the…source images. As this was just an experiment, and I don't have licenses for 100 NPC photos on-hand, I knew I wasn't going to go much further. For fun, though, I threw a silly webcam photo of myself in the mix, too.</p>
+        <p>With whatever time savings I'd have (after the hypothetical labor of running 100 images through this pipeline) I'd likely spend it on increasing quality on an individual basis. This is no substitute for hand-placed pixel art, but I could work on fixing the largest errors that would inevitably crop up in the batch of results.</p>
+        <p>With the advances in generative image AI (controversies aside), I could easily see it fitting into this work stream. That's a topic for another day.</p>
+    </div>
+    <div>
+        <%- include('partials/post-image', {imgpath: "/image/posts/2023-07-01_art-jam-experiments-with-pixelization/source_knight.jpg", caption: "Illus. FJFT"}) %>
+    </div>
+</div>
+
+<div class="post-content-two-items">
+    <%- include('partials/post-image', {imgpath: "/image/posts/2023-07-01_art-jam-experiments-with-pixelization/source_self-photo.png", caption: "T-Shirts probably don't fit in here"}) %>
+    <%- include('partials/post-image', {imgpath: "/image/posts/2023-07-01_art-jam-experiments-with-pixelization/knight-final.png", caption: "Would definitely offer a quest, probably to slay a dragon."}) %>
+</div>
+
+
+
+<h2>Conclusion</h2>
+
+<p>I'm satisfied with the results of this experiment. Most importantly I learned a lot, and as a bonus the results looked of high enough quality to be used as prototypes in a game. As far as the 'pipeline' itself, the flow has several areas where efficiency could be gained. I'd love to work on this project more in the future, and potentially throw them into Aseprite for simple animations.</p>
+
+<p>One of my biggest takeaways was how powerful PixaTool is. I only learned the basics, and I wish there was documentation for the settings, but it allowed for results that would have taken exponentially longer to do in Photoshop alone. I've been looking for a good way to test this software and, after this experiment, endorse it.</p>
+
+<p>Everything considered, this was a fun project. And while I still don't know what those slices of watermelon would look like, maybe one day I'll get around to making a retro CRPG to use all of these NPC portraits in.</p>
