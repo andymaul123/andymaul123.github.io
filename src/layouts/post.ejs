@@ -4,9 +4,15 @@
 <body>
   <div class="container">
     <section>
+      <div class="row">
+        <div class="twelve columns">
+          <%- include('partials/logo-header') %>
+          <%- include('partials/new-nav') %>
+        </div>
+      </div>
         <div class="row">
             <div class="nine columns blog">
-                <%- include('partials/new-nav') %>
+                
                 <h1><%= page.title %></h1>
                 <div class="post-date right"><%= page.date %></div>
                 <div><%- body %></div>
@@ -20,9 +26,8 @@
     </section>
   </div>
   <%- include('partials/footer') %>
-
-
-  <%- include('partials/scripts') %>
+  <%- include('partials/scripts-global') %>
+  <%- include('partials/scripts-typewriter') %>
 
 </body>
 </html>
