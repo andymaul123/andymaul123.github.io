@@ -996,11 +996,17 @@ body {
   background-color: #121212;
   font-size: 1.6rem;
   line-height: 1.5;
+  position: relative;
 }
 
 .container {
   max-width: 1200px;
-  margin-top: 3rem;
+  margin-top: 9rem;
+}
+@media (min-width: 1000px) {
+  .container {
+    margin-top: 3rem;
+  }
 }
 
 blockquote {
@@ -1043,37 +1049,46 @@ a:hover {
   transition: all 0.5s linear;
 }
 
-/* Misc
+/* Header
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
+.logo {
+  display: none;
+}
+@media (min-width: 1000px) {
+  .logo {
+    display: block;
+  }
+}
 .logo img {
   width: 25%;
   margin: 1rem;
   max-width: 25rem;
 }
-@media (min-width: 750px) {
+@media (min-width: 1000px) {
   .logo img {
     margin: 3rem;
   }
 }
 
-.new-nav {
-  display: flex;
+.desktop-nav {
   flex-direction: column;
   justify-content: space-between;
   margin-bottom: 1rem;
   align-items: center;
+  display: none;
 }
 @media (min-width: 1000px) {
-  .new-nav {
+  .desktop-nav {
+    display: flex;
     flex-direction: row;
     align-items: baseline;
     margin-bottom: 5rem;
   }
-  .blog .new-nav {
+  .blog .desktop-nav {
     margin-bottom: 3rem;
   }
 }
-.new-nav a {
+.desktop-nav a {
   font-size: 2rem;
   text-decoration: none;
   font-family: "Muli", sans-serif;
@@ -1081,7 +1096,7 @@ a:hover {
   margin: 0 0 1rem 0;
 }
 @media (min-width: 1000px) {
-  .new-nav a {
+  .desktop-nav a {
     margin: 0;
   }
 }
@@ -1090,7 +1105,7 @@ a:hover {
   margin-bottom: 5rem;
   display: none;
 }
-@media (min-width: 750px) {
+@media (min-width: 1000px) {
   .header-animation {
     display: block;
   }
@@ -1116,6 +1131,31 @@ a:hover {
   color: #fff;
   border-color: #121212;
   background: #121212;
+}
+
+.mobile-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+  height: 6rem;
+  border-bottom: 1px solid #333;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 99;
+  background-color: #121212;
+  box-sizing: border-box;
+  padding: 1rem;
+}
+@media (min-width: 1000px) {
+  .mobile-header {
+    display: none;
+  }
+}
+.mobile-header img {
+  display: block;
+  height: 4rem;
 }
 
 /* Footer
