@@ -2,42 +2,29 @@
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 .dropcap {
     float: left;
+    font-family: $title;
     font-size: 9rem;
     line-height: 6rem;
     padding: 0 1rem 0 0;
-    font-family: $title;
 }
 .blog h4 {
     margin-bottom: 0;
-}
-.blog .vertical-image {
-    max-width: 50%;
-    float: right;
-    margin: 0 0 2rem 2rem;
-}
-.blog .horizontal-image {
-    max-width: 100%;
 }
 .archives {
     margin-top: 6rem;
 }
 .archives li {
+    border-bottom: 1px solid $accentGray;
     list-style: none;
     margin-bottom: 2rem;
     padding-bottom: 2rem;
-    border-bottom: 1px solid $accentGray;
 }
 .post-date {
-    font-family: $title;
     color: $white;
-    margin-bottom: 2rem;
+    font-family: $title;
     font-size: 1.7rem;
     letter-spacing: 0.1rem;
-}
-.image-note {
-    text-align: left;
-    font-style: italic;
-    display: inline-block;
+    margin-bottom: 2rem;
 }
 pre > code {
     padding: 0;
@@ -48,7 +35,7 @@ code {
 }
 .post-image {
     display: block;
-    margin-bottom: 3rem;
+    margin-bottom: $flow-bottom;
 
     &.half {
         max-width: 50%;
@@ -66,8 +53,8 @@ code {
     }
 }
 .post-image-picture {
-    height: auto;
     display: block;
+    height: auto;
     max-width: 100%;
 }
 .post-image-caption {

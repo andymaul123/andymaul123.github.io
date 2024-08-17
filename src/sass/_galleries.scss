@@ -1,40 +1,7 @@
 /* Galleries
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
-.home-about {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    @media (min-width: 750px) {
-        flex-direction: row;
-    }
-    .left {
-        width: 100%;
-        @media (min-width: 750px) {
-            width: 70%
-        }
-    }
-    .right {
-        width: 100%;
-        @media (min-width: 750px) {
-            width: 25%
-        }
-    }
-    .portrait {
-        display: block;
-        border-radius: 50%;
-        max-width: 20rem;
-        width: 100%;
-        height: auto;
-
-        @media (min-width: 1000px) {
-            margin-top: -4rem;
-        }
-    }
-}
-
 .post-card-gallery {
-    margin-bottom: 5rem;
+    margin-bottom: $flow-bottom-big;
 }
 .featured-posts-wrapper {
     display: flex;
@@ -44,32 +11,36 @@
 }
 .featured-post-card {
     display: block;
-    width: 49%;
-    max-width: 600px;
-    min-width: 400px;
-    margin-bottom: 3rem;
+    margin-bottom: $flow-bottom;
+    max-width: 1024px;
+    min-width: 20rem;
+    width: 100%;
     a {
         display: block;
         width: 100%;
     }
-    @media(max-width:1024px) {
-        width: 100%;
-        max-width: 1024px;
+    @media(min-width: 1024px) {
+        max-width: 60rem;
+        min-width: 40rem;
+        width: 49%;
     }
+
 }
 .featured-post-card-image {
-    width: 100%;
-    height: 300px;
+    height: 30rem;
+    max-width: 80.5rem;
     object-fit: cover;
-    @media(max-width:1024px) {
-        max-width: 805px;
-        
+    object-position: 0 0;
+    width: 100%;
+    
+    @media(min-width: 1024px) {
+        max-width: 100%;
     }
 }
 .featured-post-card-title {
     background-color: $accentGray;
+    margin-top: -0.6rem; //mystery 6px gap
     padding: 1rem;
-    margin-top: -6px; //mystery 6px gap
 }
 
 .writing-entries-wrapper {
@@ -80,9 +51,9 @@
 
 }
 .writing-entries-wrapper .writing-entry {
+    max-width: 60rem;
+    min-width: 20rem;
     width: 48%;
-    max-width: 600px;
-    min-width: 400px;
 
     h2, h2 a {
         font-family: $title;
@@ -91,8 +62,8 @@
         padding: 0;
     }
     span {
+        display: block;
         font-style: italic;
         margin-bottom: 1rem;
-        display: block;
     }
 }

@@ -1,41 +1,45 @@
 /* These styles are overrides to the base skeleton template */
 
 body {
-    font-family: $body;
-    color: $textGray;
     background-color: $darkGray;
+    color: $textGray;
+    font-family: $body;
     font-size: 1.6rem;
     line-height: 1.5;
+    position: relative;
 }
 .container {
-    margin-top: 3rem;
+    margin-top: 9rem;
     max-width: 1200px;
-    // @media(min-width: 1920px) {
-    //     max-width: 1500px;
-    // }
-    body.about & {
-        max-width: 1140px;
+    @media(min-width: 1000px) {
+        margin-top: 3rem;
     }
 }
 blockquote {
     border-left: 2px solid $accentGray;
+    margin: 0 0 3rem 0;
     padding-left: 2rem;
+    @media(min-width: 1000px) {
+        margin: 0 4rem 3rem 4rem;
+    }
 }
 
 /* Typography
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 h1, h2, h3, h4, h5, h6 {
-    font-family: $title;
     color: $white;
+    font-family: $title;
     letter-spacing: normal;
-    margin-bottom: 3rem;
+    margin-bottom: $flow-bottom;
 }
 p {
-    font: 1.5rem/2.1rem $body;
+    font-family: $body;
+    font-size: 1.5rem;
     font-weight: 300;
-    text-align: justify;
     letter-spacing: 0.02rem;
-    margin-bottom: 3rem;
+    line-height: 2.1rem;
+    margin-bottom: $flow-bottom;
+    text-align: justify;
 }
 b, strong {
     font-weight: 700;
@@ -43,8 +47,8 @@ b, strong {
 /* Links
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 a {
-  font-family: $body;
   color: $yellow;
+  font-family: $body;
   text-decoration: none;
 
   &:hover {
@@ -52,110 +56,232 @@ a {
     transition: all 0.5s linear;
   }
 }
-/* Misc
+/* Header
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 .logo {
+    display: none;
+    @media(min-width: 1000px) {
+        display: block;
+    }
     img {
-        width: 25%;
-        margin: 3rem;
+        margin: 1rem;
         max-width: 25rem;
-        @media(max-width:767px) {
-            margin: 1rem;
+        width: 25%;
+        @media(min-width: 1000px) {
+            margin: 3rem;
         }
     }
 }
-.new-nav {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    margin-bottom: 5rem;
-    a {
-        font-size: 2rem;
-        text-decoration: none;
-        font-family: $body;
-        text-transform: uppercase;
-    }    
-}
 .header-animation {
-    margin-bottom: 5rem;
+    display: none;
+    margin-bottom: $flow-bottom-big;
+    @media(min-width: 1000px) {
+        display: block;
+    }
     .typing {
-        width: 50%;
-        font-family: $monospace;
-        text-align: center;
         background: $black;
         border-radius: 5px;
         border: 1px solid $accentGray;
         color: #ffff99;
+        font-family: $monospace;
         font-size: 2rem;
         padding: 5px 10px;
+        text-align: center;
         transition: all 2s linear;
-        @media(max-width:1024px) {
-            width: 75%;
+        width: 75%;
+        @media(min-width: 1000px) {
+            width: 50%;
         }
         &.fadeToWhite {
-            color: $white;
-            border-color: $darkGray;
             background: $darkGray;
+            border-color: $darkGray;
+            color: $white;
         }
     }
-    @media(max-width: 767px) {
+
+}
+/* Navigation & Mobile Header/Nav
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+.desktop-nav {
+    align-items: center;
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+    @media(min-width: 1000px) {
+        align-items: baseline;
+        display: flex;
+        flex-direction: row;
+        margin-bottom: $flow-bottom-big;
+        .blog & {
+            margin-bottom: $flow-bottom;
+        }
+    }
+    a {
+        font-family: $body;
+        font-size: 2rem;
+        margin: 0 0 1rem 0;
+        text-decoration: none;
+        text-transform: uppercase;
+        @media(min-width: 1000px) {
+            margin: 0;
+        }
+    }
+}
+
+.mobile-header {
+    background-color: $darkGray;
+    border-bottom: 1px solid $accentGray;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    height: 6rem;
+    justify-content: space-between;
+    left: 0;
+    padding: 1rem;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 99;
+    @media(min-width: 1000px) {
         display: none;
     }
+    img {
+        display: block;
+        height: 4rem;
+    }
+}
+.mobile-header .menu-button {
+    .menu-input {
+        position: absolute;
+        visibility: hidden;
+    }
+    .menu-icon {
+        align-items: center;
+        border-radius: 0.5rem;
+        border: 1px solid $accentGray;
+        display: flex;
+        height: 4rem;
+        justify-content: center;
+        margin: 0;
+        width: 4rem;
+        .icon-menu {
+            font-size: 3.5rem;
+            margin-top: -4px;
+        }
+    }
+}
+.mobile-menu-open {
+    background-color: $darkGray;
+    display: flex;
+    flex-direction: column;
+    height: 0px;
+    left: 0;
+    overflow: hidden;
+    position: fixed;
+    top: 6rem;
+    width: 100%;
+    a {
+        border-bottom: 1px solid $accentGray;
+        box-sizing: border-box;
+        display: block;
+        font-size: 2.5rem;
+        margin: 0;
+        padding: 1rem 0;
+        text-align: center;
+        text-transform: uppercase;
+        width: 100%;
+    }
+}
+
+.menu-input:checked ~ .mobile-menu-open {
+    height: 100%;
 }
 
 /* Footer
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
-.footer {
+.new-footer {
+    align-items: center;
     border-top: 1px solid $accentGray;
-    padding: 1rem 2rem;
-    letter-spacing: 0.05rem;
-    margin-top: 3rem;
-    .footer-link {
-        font-size: 1.3rem;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    padding: 2rem 2rem 0 2rem;
+    width: 100%;
+    @media(min-width: 1000px) {
+        flex-direction: row;
     }
-    @media(max-width:919px) {
-        .columns {
-            display: block;
-            width: 100%;
-            text-align: center;
-            margin-bottom: 1rem;
-        }
+    .foot-left, .foot-center, .foot-right {
+        margin-bottom: 2rem;
+    }
+    .foot-left {
         .email {
-            text-align: center;
-            margin-left: auto;
-            margin-right: auto;
+            display: table;
         }
-        .social a {
-            margin-right: 2.5rem;
+        .icon-envelope, .icon-envelope2 {
+            display: table-cell;
+            font-size: 3rem;
+            vertical-align: middle;
+            width: 3.5rem;
+        }
+        .email-address {
+            display: table-cell;
+            font-size: 1.3rem;
+            font-weight: 300;
+            letter-spacing: 0.02rem;
+            vertical-align: middle;
+        }
+    }
+    .foot-center {
+        text-align: center;
+    }
+    .foot-right {
+        display: flex;
+        flex-direction: row;
+        a {
+            display: block;
+            margin: 0 1rem;
         }
     }
 }
-.footer-content {
-    padding: 0.5rem 0 0 0;
-    font-size: 1.3rem;
-}
-.email {
-    display: table;
-}
-.icon-envelope, .icon-envelope2 {
-    display: table-cell;
-    width: 3.5rem;
-    vertical-align: middle;
-    font-size: 3rem;
-}
-.email-address {
-    display: table-cell;
-    vertical-align: middle;
-    font-size: 1.3rem;
-    font-weight: 300;
-    letter-spacing: 0.02rem;
-}
-.social {
-    a {
-        margin-right: 1.5rem;
-        &:last-child {
-            margin-right: 0;
+/* Home Page Intro
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+.home-about {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-bottom: $flow-bottom;
+    @media (min-width: 1000px) {
+        flex-direction: row;
+        margin-bottom: 0;
+    }
+    .about-left {
+        width: 100%;
+        @media (min-width: 1000px) {
+            width: 70%
         }
     }
-}
+    .about-right {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        width: 100%;
+        @media (min-width: 1000px) {
+            width: 25%
+        }
+    }
+    .portrait {
+        border-radius: 50%;
+        display: block;
+        height: auto;
+        max-width: 20rem;
+        width: 100%;
 
+        @media (min-width: 1000px) {
+            margin-top: -4rem;
+        }
+    }
+}

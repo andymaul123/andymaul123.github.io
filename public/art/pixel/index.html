@@ -1,16 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Andrew Maul</title>
-    <link rel="stylesheet" href="/css/styles.css">
-    <link rel="icon" type="image/x-icon" href="/image/favicon.ico" >
-    <link href="https://fonts.googleapis.com/css?family=Muli" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Ovo" rel="stylesheet">
-  </head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Andrew Maul</title>
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="icon" type="image/x-icon" href="/image/favicon.ico" >
+  <link href="https://fonts.googleapis.com/css?family=Muli" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Ovo" rel="stylesheet">
+</head>
 <body>
+  <div class="mobile-header">
+    <img src="/image/logo.svg" alt="logo" />
+    <div class="menu-button">
+        <input class="menu-input" type="checkbox" id="menu-input" name="menu-input" />
+        <label class="menu-icon" for="menu-input">
+            <span class="icon-menu icon"></span>
+        </label>
+        <div class="mobile-menu-open">
+            <a href="/" class="no-underline shadows ">home</a>
+            <a href="/projects" class="no-underline shadows ">projects</a>
+            <a href="/art" class="no-underline shadows ">art</a>
+            <a href="/posts/2024-08-11_website-relaunch" class="no-underline shadows ">blog</a>
+            <a href="/resume" class="no-underline shadows ">résumé</a>
+        </div>
+    </div>
+</div>
+
   <div class="container">
     <section>
       <div class="row">
@@ -22,7 +39,7 @@
 <div class="header-animation center">
     <input id="animation-input" class="typing" type="text" disabled />
 </div>
-          <nav class="new-nav">
+          <nav class="desktop-nav">
     <a href="/" class="no-underline shadows ">home</a>
     <a href="/projects" class="no-underline shadows ">projects</a>
     <a href="/art" class="no-underline shadows ">art</a>
@@ -67,7 +84,7 @@
         <div class="featured-post-card outline">
     <a href="/image/art/pixel/fakemon_2023.png">
         
-            <img class="featured-post-card-image" src="/image/art/pixel/fakemon_2023.png" style="object-position: 0 0;"/>
+            <img class="featured-post-card-image" src="/image/art/pixel/fakemon_2023.png"/>   
         
         <div class="featured-post-card-title">
             Fakemon, 2023
@@ -80,25 +97,25 @@
       </div>
     </section>
   </div>
-  <footer class="footer">
-  <div class="row">
-    <div class="three columns left">
-      <div class="email"> <span class="icon-envelope2 icon"></span> <span class="email-address">andymaul123@gmail.com</span></div>
-    </div>
-  <div class="six columns center footer-content">
-      &copy; Andrew Maul 2024. Made with <a href="https://github.com/dhg/Skeleton" target="new" class="no-underline">Skeleton</a>, <a href="https://github.com/doug2k1/nanogen/" class="no-underline" target="new">Nanogen</a>, <a href="https://prismjs.com/" class="no-underline" target="new">Prism.js</a>, and <a href="https://icomoon.io/" class="no-underline" target="new">IcoMoon</a>.
-    </div>
-  <div class="three columns right social">
-        <a href="https://github.com/andymaul123" target="new" class="no-underline footer-link"><span class="icon-github icon"></span></a>
-        <a href="https://www.linkedin.com/in/andymaul" target="new" class="no-underline footer-link"><span class="icon-linkedin2 icon"></span></a>
-    </div>
+  
+<footer class="new-footer">
+  <div class="foot-left">
+    <div> <span class="icon-envelope icon"></span> <span class="email-address">andymaul123@gmail.com</span></div>
+  </div>
+  <div class="foot-center">
+    &copy; Andrew Maul 2024. Made with <a href="https://github.com/dhg/Skeleton" target="new" class="no-underline">Skeleton</a>, <a href="https://github.com/doug2k1/nanogen/" class="no-underline" target="new">Nanogen</a>, <a href="https://prismjs.com/" class="no-underline" target="new">Prism.js</a>, and <a href="https://icomoon.io/" class="no-underline" target="new">IcoMoon</a>.
+  </div>
+  <div class="foot-right">
+    <a href="https://github.com/andymaul123" target="new" class="no-underline footer-link"><span class="icon-github icon"></span></a>
+    <a href="https://www.linkedin.com/in/andymaul" target="new" class="no-underline footer-link"><span class="icon-linkedin2 icon"></span></a>
   </div>
 </footer>
 
 
+
+
   <!-- Prism.js syntax highlighting -->
 <script type="text/javascript" src="/js/prism.js"></script>
-  <!-- Homepage Animation -->
   <script type="text/javascript">
 
     const inputElement = document.getElementById('animation-input');
@@ -116,5 +133,6 @@
     }, 125);
 
   </script>
+
 </body>
 </html>
