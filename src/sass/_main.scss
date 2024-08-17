@@ -1,24 +1,24 @@
 /* These styles are overrides to the base skeleton template */
 
 body {
-    font-family: $body;
-    color: $textGray;
     background-color: $darkGray;
+    color: $textGray;
+    font-family: $body;
     font-size: 1.6rem;
     line-height: 1.5;
     position: relative;
 }
 .container {
-    max-width: 1200px;
     margin-top: 9rem;
+    max-width: 1200px;
     @media(min-width: 1000px) {
         margin-top: 3rem;
     }
 }
 blockquote {
     border-left: 2px solid $accentGray;
-    padding-left: 2rem;
     margin: 0 0 3rem 0;
+    padding-left: 2rem;
     @media(min-width: 1000px) {
         margin: 0 4rem 3rem 4rem;
     }
@@ -27,19 +27,19 @@ blockquote {
 /* Typography
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 h1, h2, h3, h4, h5, h6 {
-    font-family: $title;
     color: $white;
+    font-family: $title;
     letter-spacing: normal;
     margin-bottom: $flow-bottom;
 }
 p {
-    font-size: 1.5rem;
-    line-height: 2.1rem;
     font-family: $body;
+    font-size: 1.5rem;
     font-weight: 300;
-    text-align: justify;
     letter-spacing: 0.02rem;
+    line-height: 2.1rem;
     margin-bottom: $flow-bottom;
+    text-align: justify;
 }
 b, strong {
     font-weight: 700;
@@ -47,8 +47,8 @@ b, strong {
 /* Links
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 a {
-  font-family: $body;
   color: $yellow;
+  font-family: $body;
   text-decoration: none;
 
   &:hover {
@@ -64,38 +64,38 @@ a {
         display: block;
     }
     img {
-        width: 25%;
         margin: 1rem;
         max-width: 25rem;
+        width: 25%;
         @media(min-width: 1000px) {
             margin: 3rem;
         }
     }
 }
 .header-animation {
-    margin-bottom: $flow-bottom-big;
     display: none;
+    margin-bottom: $flow-bottom-big;
     @media(min-width: 1000px) {
         display: block;
     }
     .typing {
-        width: 75%;
-        font-family: $monospace;
-        text-align: center;
         background: $black;
         border-radius: 5px;
         border: 1px solid $accentGray;
         color: #ffff99;
+        font-family: $monospace;
         font-size: 2rem;
         padding: 5px 10px;
+        text-align: center;
         transition: all 2s linear;
+        width: 75%;
         @media(min-width: 1000px) {
             width: 50%;
         }
         &.fadeToWhite {
-            color: $white;
-            border-color: $darkGray;
             background: $darkGray;
+            border-color: $darkGray;
+            color: $white;
         }
     }
 
@@ -103,26 +103,26 @@ a {
 /* Navigation & Mobile Header/Nav
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 .desktop-nav {
+    align-items: center;
+    display: none;
     flex-direction: column;
     justify-content: space-between;
     margin-bottom: 1rem;
-    align-items: center;
-    display: none;
     @media(min-width: 1000px) {
+        align-items: baseline;
         display: flex;
         flex-direction: row;
-        align-items: baseline;
         margin-bottom: $flow-bottom-big;
         .blog & {
             margin-bottom: $flow-bottom;
         }
     }
     a {
-        font-size: 2rem;
-        text-decoration: none;
         font-family: $body;
-        text-transform: uppercase;
+        font-size: 2rem;
         margin: 0 0 1rem 0;
+        text-decoration: none;
+        text-transform: uppercase;
         @media(min-width: 1000px) {
             margin: 0;
         }
@@ -130,19 +130,19 @@ a {
 }
 
 .mobile-header {
+    background-color: $darkGray;
+    border-bottom: 1px solid $accentGray;
+    box-sizing: border-box;
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
-    width: 100%;
     height: 6rem;
-    border-bottom: 1px solid $accentGray;
+    justify-content: space-between;
+    left: 0;
+    padding: 1rem;
     position: fixed;
     top: 0;
-    left: 0;
+    width: 100%;
     z-index: 99;
-    background-color: $darkGray;
-    box-sizing: border-box;
-    padding: 1rem;
     @media(min-width: 1000px) {
         display: none;
     }
@@ -153,18 +153,18 @@ a {
 }
 .mobile-header .menu-button {
     .menu-input {
-        visibility: hidden;
         position: absolute;
+        visibility: hidden;
     }
     .menu-icon {
-        display: flex;
-        justify-content: center;
         align-items: center;
-        width: 4rem;
-        height: 4rem;
         border-radius: 0.5rem;
-        margin: 0;
         border: 1px solid $accentGray;
+        display: flex;
+        height: 4rem;
+        justify-content: center;
+        margin: 0;
+        width: 4rem;
         .icon-menu {
             font-size: 3.5rem;
             margin-top: -4px;
@@ -172,25 +172,25 @@ a {
     }
 }
 .mobile-menu-open {
-    position: fixed;
-    left: 0;
-    top: 6rem;
-    width: 100%;
-    height: 0px;
-    overflow: hidden;
+    background-color: $darkGray;
     display: flex;
     flex-direction: column;
-    background-color: $darkGray;
+    height: 0px;
+    left: 0;
+    overflow: hidden;
+    position: fixed;
+    top: 6rem;
+    width: 100%;
     a {
-        display: block;
-        width: 100%;
-        text-align: center;
-        padding: 1rem 0;
-        margin: 0;
-        box-sizing: border-box;
         border-bottom: 1px solid $accentGray;
+        box-sizing: border-box;
+        display: block;
         font-size: 2.5rem;
+        margin: 0;
+        padding: 1rem 0;
+        text-align: center;
         text-transform: uppercase;
+        width: 100%;
     }
 }
 
@@ -201,15 +201,15 @@ a {
 /* Footer
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 .new-footer {
+    align-items: center;
+    border-top: 1px solid $accentGray;
+    box-sizing: border-box;
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
     justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    border-top: 1px solid $accentGray;
     padding: 2rem 2rem 0 2rem;
-    box-sizing: border-box;
+    width: 100%;
     @media(min-width: 1000px) {
         flex-direction: row;
     }
@@ -222,16 +222,16 @@ a {
         }
         .icon-envelope, .icon-envelope2 {
             display: table-cell;
-            width: 3.5rem;
-            vertical-align: middle;
             font-size: 3rem;
+            vertical-align: middle;
+            width: 3.5rem;
         }
         .email-address {
             display: table-cell;
-            vertical-align: middle;
             font-size: 1.3rem;
             font-weight: 300;
             letter-spacing: 0.02rem;
+            vertical-align: middle;
         }
     }
     .foot-center {
@@ -265,20 +265,20 @@ a {
         }
     }
     .about-right {
-        width: 100%;
         display: flex;
         flex-direction: row;
         justify-content: center;
+        width: 100%;
         @media (min-width: 1000px) {
             width: 25%
         }
     }
     .portrait {
-        display: block;
         border-radius: 50%;
+        display: block;
+        height: auto;
         max-width: 20rem;
         width: 100%;
-        height: auto;
 
         @media (min-width: 1000px) {
             margin-top: -4rem;

@@ -1,12 +1,9 @@
 /* Misc
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
-
-
-
 .outline {
-    border-width: 0.1rem;
-    border-style: solid;
     border-color: $accentGray;
+    border-style: solid;
+    border-width: 0.1rem;
 }
 .left {
     text-align: left;
@@ -31,6 +28,6 @@
 }
 .bottom-border {
     border-bottom: solid;
-    border-width: 1px;
     border-color: $accentGray;
+    border-width: 1px;
 }

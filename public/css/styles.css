@@ -943,17 +943,17 @@ there.
 
 /* These styles are overrides to the base skeleton template */
 body {
-  font-family: "Muli", sans-serif;
-  color: #dcdcdc;
   background-color: #121212;
+  color: #dcdcdc;
+  font-family: "Muli", sans-serif;
   font-size: 1.6rem;
   line-height: 1.5;
   position: relative;
 }
 
 .container {
-  max-width: 1200px;
   margin-top: 9rem;
+  max-width: 1200px;
 }
 @media (min-width: 1000px) {
   .container {
@@ -963,8 +963,8 @@ body {
 
 blockquote {
   border-left: 2px solid #333;
-  padding-left: 2rem;
   margin: 0 0 3rem 0;
+  padding-left: 2rem;
 }
 @media (min-width: 1000px) {
   blockquote {
@@ -975,20 +975,20 @@ blockquote {
 /* Typography
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 h1, h2, h3, h4, h5, h6 {
-  font-family: "Ovo", serif;
   color: #fff;
+  font-family: "Ovo", serif;
   letter-spacing: normal;
   margin-bottom: 3rem;
 }
 
 p {
-  font-size: 1.5rem;
-  line-height: 2.1rem;
   font-family: "Muli", sans-serif;
+  font-size: 1.5rem;
   font-weight: 300;
-  text-align: justify;
   letter-spacing: 0.02rem;
+  line-height: 2.1rem;
   margin-bottom: 3rem;
+  text-align: justify;
 }
 
 b, strong {
@@ -998,8 +998,8 @@ b, strong {
 /* Links
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 a {
-  font-family: "Muli", sans-serif;
   color: #ffff99;
+  font-family: "Muli", sans-serif;
   text-decoration: none;
 }
 a:hover {
@@ -1018,9 +1018,9 @@ a:hover {
   }
 }
 .logo img {
-  width: 25%;
   margin: 1rem;
   max-width: 25rem;
+  width: 25%;
 }
 @media (min-width: 1000px) {
   .logo img {
@@ -1029,8 +1029,8 @@ a:hover {
 }
 
 .header-animation {
-  margin-bottom: 5rem;
   display: none;
+  margin-bottom: 5rem;
 }
 @media (min-width: 1000px) {
   .header-animation {
@@ -1038,16 +1038,16 @@ a:hover {
   }
 }
 .header-animation .typing {
-  width: 75%;
-  font-family: "Courier New", Courier, monospace;
-  text-align: center;
   background: #000;
   border-radius: 5px;
   border: 1px solid #333;
   color: #ffff99;
+  font-family: "Courier New", Courier, monospace;
   font-size: 2rem;
   padding: 5px 10px;
+  text-align: center;
   transition: all 2s linear;
+  width: 75%;
 }
 @media (min-width: 1000px) {
   .header-animation .typing {
@@ -1055,25 +1055,25 @@ a:hover {
   }
 }
 .header-animation .typing.fadeToWhite {
-  color: #fff;
-  border-color: #121212;
   background: #121212;
+  border-color: #121212;
+  color: #fff;
 }
 
 /* Navigation & Mobile Header/Nav
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 .desktop-nav {
+  align-items: center;
+  display: none;
   flex-direction: column;
   justify-content: space-between;
   margin-bottom: 1rem;
-  align-items: center;
-  display: none;
 }
 @media (min-width: 1000px) {
   .desktop-nav {
+    align-items: baseline;
     display: flex;
     flex-direction: row;
-    align-items: baseline;
     margin-bottom: 5rem;
   }
   .blog .desktop-nav {
@@ -1081,11 +1081,11 @@ a:hover {
   }
 }
 .desktop-nav a {
-  font-size: 2rem;
-  text-decoration: none;
   font-family: "Muli", sans-serif;
-  text-transform: uppercase;
+  font-size: 2rem;
   margin: 0 0 1rem 0;
+  text-decoration: none;
+  text-transform: uppercase;
 }
 @media (min-width: 1000px) {
   .desktop-nav a {
@@ -1094,19 +1094,19 @@ a:hover {
 }
 
 .mobile-header {
+  background-color: #121212;
+  border-bottom: 1px solid #333;
+  box-sizing: border-box;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
-  width: 100%;
   height: 6rem;
-  border-bottom: 1px solid #333;
+  justify-content: space-between;
+  left: 0;
+  padding: 1rem;
   position: fixed;
   top: 0;
-  left: 0;
+  width: 100%;
   z-index: 99;
-  background-color: #121212;
-  box-sizing: border-box;
-  padding: 1rem;
 }
 @media (min-width: 1000px) {
   .mobile-header {
@@ -1119,18 +1119,18 @@ a:hover {
 }
 
 .mobile-header .menu-button .menu-input {
-  visibility: hidden;
   position: absolute;
+  visibility: hidden;
 }
 .mobile-header .menu-button .menu-icon {
-  display: flex;
-  justify-content: center;
   align-items: center;
-  width: 4rem;
-  height: 4rem;
   border-radius: 0.5rem;
-  margin: 0;
   border: 1px solid #333;
+  display: flex;
+  height: 4rem;
+  justify-content: center;
+  margin: 0;
+  width: 4rem;
 }
 .mobile-header .menu-button .menu-icon .icon-menu {
   font-size: 3.5rem;
@@ -1138,26 +1138,26 @@ a:hover {
 }
 
 .mobile-menu-open {
-  position: fixed;
-  left: 0;
-  top: 6rem;
-  width: 100%;
-  height: 0px;
-  overflow: hidden;
+  background-color: #121212;
   display: flex;
   flex-direction: column;
-  background-color: #121212;
+  height: 0px;
+  left: 0;
+  overflow: hidden;
+  position: fixed;
+  top: 6rem;
+  width: 100%;
 }
 .mobile-menu-open a {
-  display: block;
-  width: 100%;
-  text-align: center;
-  padding: 1rem 0;
-  margin: 0;
-  box-sizing: border-box;
   border-bottom: 1px solid #333;
+  box-sizing: border-box;
+  display: block;
   font-size: 2.5rem;
+  margin: 0;
+  padding: 1rem 0;
+  text-align: center;
   text-transform: uppercase;
+  width: 100%;
 }
 
 .menu-input:checked ~ .mobile-menu-open {
@@ -1167,15 +1167,15 @@ a:hover {
 /* Footer
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 .new-footer {
+  align-items: center;
+  border-top: 1px solid #333;
+  box-sizing: border-box;
   display: flex;
   flex-direction: column;
   flex-wrap: nowrap;
   justify-content: space-between;
-  align-items: center;
-  width: 100%;
-  border-top: 1px solid #333;
   padding: 2rem 2rem 0 2rem;
-  box-sizing: border-box;
+  width: 100%;
 }
 @media (min-width: 1000px) {
   .new-footer {
@@ -1190,16 +1190,16 @@ a:hover {
 }
 .new-footer .foot-left .icon-envelope, .new-footer .foot-left .icon-envelope2 {
   display: table-cell;
-  width: 3.5rem;
-  vertical-align: middle;
   font-size: 3rem;
+  vertical-align: middle;
+  width: 3.5rem;
 }
 .new-footer .foot-left .email-address {
   display: table-cell;
-  vertical-align: middle;
   font-size: 1.3rem;
   font-weight: 300;
   letter-spacing: 0.02rem;
+  vertical-align: middle;
 }
 .new-footer .foot-center {
   text-align: center;
@@ -1237,10 +1237,10 @@ a:hover {
   }
 }
 .home-about .about-right {
-  width: 100%;
   display: flex;
   flex-direction: row;
   justify-content: center;
+  width: 100%;
 }
 @media (min-width: 1000px) {
   .home-about .about-right {
@@ -1248,11 +1248,11 @@ a:hover {
   }
 }
 .home-about .portrait {
-  display: block;
   border-radius: 50%;
+  display: block;
+  height: auto;
   max-width: 20rem;
   width: 100%;
-  height: auto;
 }
 @media (min-width: 1000px) {
   .home-about .portrait {
@@ -1276,9 +1276,9 @@ a:hover {
 .featured-post-card {
   display: block;
   margin-bottom: 3rem;
-  width: 100%;
   max-width: 1024px;
   min-width: 20rem;
+  width: 100%;
 }
 .featured-post-card a {
   display: block;
@@ -1286,18 +1286,18 @@ a:hover {
 }
 @media (min-width: 1024px) {
   .featured-post-card {
-    width: 49%;
     max-width: 60rem;
     min-width: 40rem;
+    width: 49%;
   }
 }
 
 .featured-post-card-image {
-  width: 100%;
   height: 30rem;
+  max-width: 80.5rem;
   object-fit: cover;
   object-position: 0 0;
-  max-width: 80.5rem;
+  width: 100%;
 }
 @media (min-width: 1024px) {
   .featured-post-card-image {
@@ -1307,8 +1307,8 @@ a:hover {
 
 .featured-post-card-title {
   background-color: #333;
-  padding: 1rem;
   margin-top: -0.6rem;
+  padding: 1rem;
 }
 
 .writing-entries-wrapper {
@@ -1319,9 +1319,9 @@ a:hover {
 }
 
 .writing-entries-wrapper .writing-entry {
-  width: 48%;
   max-width: 60rem;
   min-width: 20rem;
+  width: 48%;
 }
 .writing-entries-wrapper .writing-entry h2, .writing-entries-wrapper .writing-entry h2 a {
   font-family: "Ovo", serif;
@@ -1330,19 +1330,19 @@ a:hover {
   padding: 0;
 }
 .writing-entries-wrapper .writing-entry span {
+  display: block;
   font-style: italic;
   margin-bottom: 1rem;
-  display: block;
 }
 
 /* Post-specific styles
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 .dropcap {
   float: left;
+  font-family: "Ovo", serif;
   font-size: 9rem;
   line-height: 6rem;
   padding: 0 1rem 0 0;
-  font-family: "Ovo", serif;
 }
 
 .blog h4 {
@@ -1354,18 +1354,18 @@ a:hover {
 }
 
 .archives li {
+  border-bottom: 1px solid #333;
   list-style: none;
   margin-bottom: 2rem;
   padding-bottom: 2rem;
-  border-bottom: 1px solid #333;
 }
 
 .post-date {
-  font-family: "Ovo", serif;
   color: #fff;
-  margin-bottom: 2rem;
+  font-family: "Ovo", serif;
   font-size: 1.7rem;
   letter-spacing: 0.1rem;
+  margin-bottom: 2rem;
 }
 
 pre > code {
@@ -1397,8 +1397,8 @@ code {
 }
 
 .post-image-picture {
-  height: auto;
   display: block;
+  height: auto;
   max-width: 100%;
 }
 
@@ -1600,9 +1600,9 @@ code {
 /* Misc
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 .outline {
-  border-width: 0.1rem;
-  border-style: solid;
   border-color: #333;
+  border-style: solid;
+  border-width: 0.1rem;
 }
 
 .left {
@@ -1635,8 +1635,8 @@ code {
 
 .bottom-border {
   border-bottom: solid;
-  border-width: 1px;
   border-color: #333;
+  border-width: 1px;
 }
 
 /* PrismJS 1.15.0

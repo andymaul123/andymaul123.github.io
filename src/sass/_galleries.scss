@@ -12,26 +12,26 @@
 .featured-post-card {
     display: block;
     margin-bottom: $flow-bottom;
-    width: 100%;
     max-width: 1024px;
     min-width: 20rem;
+    width: 100%;
     a {
         display: block;
         width: 100%;
     }
     @media(min-width: 1024px) {
-        width: 49%;
         max-width: 60rem;
         min-width: 40rem;
+        width: 49%;
     }
 
 }
 .featured-post-card-image {
-    width: 100%;
     height: 30rem;
+    max-width: 80.5rem;
     object-fit: cover;
     object-position: 0 0;
-    max-width: 80.5rem;
+    width: 100%;
     
     @media(min-width: 1024px) {
         max-width: 100%;
@@ -39,8 +39,8 @@
 }
 .featured-post-card-title {
     background-color: $accentGray;
-    padding: 1rem;
     margin-top: -0.6rem; //mystery 6px gap
+    padding: 1rem;
 }
 
 .writing-entries-wrapper {
@@ -51,9 +51,9 @@
 
 }
 .writing-entries-wrapper .writing-entry {
-    width: 48%;
     max-width: 60rem;
     min-width: 20rem;
+    width: 48%;
 
     h2, h2 a {
         font-family: $title;
@@ -62,8 +62,8 @@
         padding: 0;
     }
     span {
+        display: block;
         font-style: italic;
         margin-bottom: 1rem;
-        display: block;
     }
 }
