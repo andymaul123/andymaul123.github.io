@@ -55,7 +55,7 @@
         color: $textGray;
         font-size: 2rem;
         @media(max-width: 919px) {
-            margin-bottom: 3rem;
+            margin-bottom: $flow-bottom;
         }
         @media (max-width:549px){
             margin-bottom: 2rem;
@@ -80,7 +80,7 @@
         padding-bottom: 0.5rem;
     }
     .skills {
-        margin-bottom: 3rem;
+        margin-bottom: $flow-bottom;
     }
     .skills-list {
         margin: 0;
@@ -94,7 +94,7 @@
     }
     .info-block {
         padding-left: 2rem;
-        margin-bottom: 3rem;
+        margin-bottom: $flow-bottom;
         @media (max-width:549px){
             padding-left: 1rem;
         }

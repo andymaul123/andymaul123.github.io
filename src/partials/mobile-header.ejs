@@ -1,4 +1,16 @@
 <div class="mobile-header">
     <img src="/image/logo.svg" alt="logo" />
-    <img src="/image/logo.svg" alt="logo" />
+    <div class="menu-button">
+        <input class="menu-input" type="checkbox" id="menu-input" name="menu-input" />
+        <label class="menu-icon" for="menu-input">
+            <span class="icon-menu icon"></span>
+        </label>
+        <div class="mobile-menu-open">
+            <a href="/" class="no-underline shadows <%= page.title == 'home' ? 'active' : '' %>">home</a>
+            <a href="/projects" class="no-underline shadows <%= page.title == 'projects' ? 'active' : '' %>">projects</a>
+            <a href="/art" class="no-underline shadows <%= page.title == 'art' ? 'active' : '' %>">art</a>
+            <a href="/posts/<%= site.latest %>" class="no-underline shadows <%= page.layout == 'post' ? 'active' : '' %>">blog</a>
+            <a href="/resume" class="no-underline shadows <%= page.title == 'resume' ? 'active' : '' %>">résumé</a>
+        </div>
+    </div>
 </div>

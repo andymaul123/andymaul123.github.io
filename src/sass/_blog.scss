@@ -35,7 +35,7 @@ code {
 }
 .post-image {
     display: block;
-    margin-bottom: 3rem;
+    margin-bottom: $flow-bottom;
 
     &.half {
         max-width: 50%;
