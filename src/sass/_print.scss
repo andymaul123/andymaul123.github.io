@@ -1,31 +1,28 @@
 //Reset styles for printing
 @media print {
     * { 
-    background: transparent !important; 
-    color: #000 !important; 
-    text-shadow: none !important; 
-    filter:none !important; 
     -ms-filter: none !important; 
     background-image: none;
+    background: transparent !important; 
+    color: #000 !important; 
+    filter:none !important; 
+    text-shadow: none !important; 
     }
     html, body {
         margin: 0;
     }
     .container {
-        width: 100%;
         border: none;
         padding: 0!important;
-        margin: 0!important;
+        width: 100%;
     }
     p, h1, h2, h3, li {
         color: #000!important;
     }
-    header, nav, footer, .logo, .homepage-animation {
+    header, nav, footer, .logo, .homepage-animation, .about-top, .mobile-header {
         display: none!important;
     }
-    .about-top {
-        display: none!important;
-    }
+
     .resume {
         &:before {
             display: none!important;
@@ -39,7 +36,7 @@
     }
     .blog, .archives {
         float: none;
-        width: 100%;
         margin: 0;
+        width: 100%;
     }
 }

@@ -1,11 +1,11 @@
 @import 'variables.scss';
-@import 'normalize.scss';
-@import 'skeleton.scss';
+@import 'third-party/normalize';
+@import 'third-party/skeleton.scss';
 @import 'print.scss';
-@import 'icons.scss';
+@import 'third-party/icons.scss';
 @import 'main.scss';
 @import 'galleries.scss';
 @import 'blog.scss';
 @import 'resume.scss';
 @import 'misc.scss';
-@import 'prism.scss';
+@import 'third-party/prism.scss';
