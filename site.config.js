@@ -5,7 +5,7 @@ module.exports = {
   },
   site: {
     title: "Andrew Maul",
-    year: "2024",
-    latest: "2024-08-11_website-relaunch"
+    year: "2025",
+    latest: "2025-02-17_dev-log_retro-asset-pipeline"
   }
 };
