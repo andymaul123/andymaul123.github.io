@@ -6,6 +6,6 @@ module.exports = {
   site: {
     title: "Andrew Maul",
     year: "2025",
-    latest: "2025-02-17_dev-log_retro-asset-pipeline"
+    latest: "2025-06-28_elemental-probability"
   }
 };

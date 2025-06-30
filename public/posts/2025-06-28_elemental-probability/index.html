@@ -51,65 +51,42 @@
         <div class="row">
             <div class="nine columns blog">
                 
-                <h1>Pixel Art: Fakemon</h1>
-                <div class="post-date right">October 2023</div>
-                <div>
-
-
-
-<div class="post-content-two-items">
+                <h1>Elemental Probability</h1>
+                <div class="post-date right">June 2025</div>
+                <div><div class="post-content-two-items">
     <div>
         <p>
-            <span class="dropcap">O</span>ctober 2021 I participated in Inktober for the third year in a row. That year I thought it would be fun to make monster designs riffing on Pokemon using the daily prompts. I did a little digging and discovered that making fake pokemon was a <em>big</em> thing, and that there's a name for them: fakemon. I wound up designing 16 little monsters that year, and had a lot of fun doing it! I even wrote up fake entries for them as if they were in a Pokedex.
+            <span class="dropcap">L</span>ate last year I began exploring a new collectible card game called <a href="https://sorcerytcg.com/" target="_blank">Sorcery:  Contested Realm</a>. There are two primary resources needed to play cards in the game: mana and threshold. Threshold is a mechanic which counts the number of elemental attributes of Site cards on your board. Spell cards may require a certain amount of threshold present to be played. Browse, for example, costs 1 mana but requires 3 Air threshold.
         </p>
-        <p>
-            I don't have much experience doing 'monster designs' or making cutesy-esque illustrations, so the exercise was challenging in a new way. Part of the process was looking at some of the original 151 pokemon for reference. During my research I learned about the gameboy sprites; specifically this wiki page <a href="https://bulbapedia.bulbagarden.net/wiki/List_of_Pok%C3%A9mon_by_color_palette_in_Generation_I" target="_blank">showcasing the different color palettes</a> used captured my interest. While I didn't complete 31 illustrations for Inktober that year, I started figuring out how to turn the ones I had completed into sprites.
-        </p>
+
+        <p>In March of 2025 I wanted to modify the deck I'd been using at weekly Sorcery events by adding a third element. The more elements to balance in a deck, the less consistent it will perform. My deck wanted to have a particular threshold amount by turn four. I intuitively made changes to the Site deck, but a question lingered:</p>
+
+        <p>What was the <em>actual</em> probability I would get Air, Earth, Earth, Water thresold on turn four?</p>
     </div>
-    
-    <a href="/image/posts/2023-10-31_fakemon-inktober/2021-fakemon-inks.jpg" class="post-image  full">
-    <img src="/image/posts/2023-10-31_fakemon-inktober/2021-fakemon-inks.jpg" class="post-image-picture outline"/>
-    <span class="post-image-caption">The original inked designs.</span>
-</a>
-
-</div>
-
-<h2>Specs</h2>
-<p>While the original pokemon Red & Blue versions were rendered in grayscale on the Game Boy DMG and Game Boy Pocket, they had color palettes when played on the Game Boy Color and...the <a href="https://en.wikipedia.org/wiki/Super_Game_Boy" target="_blank">Super Game Boy</a>. I had never even heard of the Super Game Boy until doing this research. For my project, I tried to remain as faithful to these renditions as possible, which resulted in the following constraints:</p>
-<ul>
-    <li>Each sprite would have a 56x56 pixel canvas.</li>
-    <li>There are 10 palettes to choose from, each containing 4 colors</li>
-    <li>Each sprite could only use one palette; no mixing and matching</li>
-</ul>
-
-<h2>Results</h2>
-
-<div class="post-content-two-items">
     <div>
-        <p>I completed a few in 2021 and picked the project back up in 2022 to complete the following "original" fakemon pixel pieces. Not all of the illustrations made the cut, but I was pretty happy with how they turned out overall. There were definitely challenges I had to overcome, as certain design elements just wouldn't translate directly to the pixel-art medium without causing visual confusion, etc. Some elements needed to be changed or simplified, like the tiny legs on Ticktock.</p>
-        <p>The ultra-restrictive color palette gave me an appreciation for just how talented the artists were when making the Pokemon sprites. The use of dithering to provide a 'fifth' color was a necessary skill I had to develop, too. Thankfully, Aseprite offers some basic dithering tools that does the job for you, which made the whole problem more approachable.</p>
-    </div>
-
-    <a href="/image/art/pixel/fakemon_2022.png" class="post-image  full">
-    <img src="/image/art/pixel/fakemon_2022.png" class="post-image-picture outline"/>
-    <span class="post-image-caption">The finished pixel art pieces at the end of 2022.</span>
+        <a href="/image/posts/2025-06-28_elemental-probability/browse.png" class="post-image  full">
+    <img src="/image/posts/2025-06-28_elemental-probability/browse.png" class="post-image-picture outline"/>
+    <span class="post-image-caption"></span>
 </a>
 
+    </div>
 </div>
 
-<h2>2023: The Sequel</h2>
+<h2>The App</h2>
 
-<p>Designing legible silhouttes at 56px and with only four colors can be really tough. I only casually participated in Inktober '23 by drawing a few monsters up and immediately rendering them in pixel art. This time around, though, instead of trying to match the cute Pokemon aesthetic I focused instead on more complex forms. I wanted to try and push myself and develop my pixel-art skills further. I kept to the same constraints as the previous years.</p>
-
-<p>Each entry represented some kind of boundary-pushing: the first (Skulk) was a simple idea, but a more complicated form. The second (Janumask) was both a fully fleshed-out narrative concept <em>and</em> a complex form to render. Nightmare, the third and last, was simpler in all aspects, but was the most challenging due to color decisions. I wanted black to be the primary color, and up to this point black had mostly been used for borders and elements appearing 'behind' the forms spatially.</p>
-
-<p>I very much enjoy working on these pixel-fakemon, and expect to do another round of them again in October '24.</p>
-
-<a href="/image/art/pixel/fakemon_2023.png" class="post-image  full">
-    <img src="/image/art/pixel/fakemon_2023.png" class="post-image-picture outline"/>
-    <span class="post-image-caption">Three fakemon from 2023: Skulk, Janumask, and Nightmare.</span>
+<a href="/image/posts/2025-06-28_elemental-probability/intro-animation.gif" class="post-image  full">
+    <img src="/image/posts/2025-06-28_elemental-probability/intro-animation.gif" class="post-image-picture outline"/>
+    <span class="post-image-caption">The finished product</span>
 </a>
 
+
+<p>The culmination of work started by that question came to be a Node app. It prompts the user with the type of criteria needed, and parses a user-provided text list using a downloaded dump of Sorcery card data. There are flags for different options: calculation vs simulation, additional card draws, etc.</p>
+
+<p>This project required that I learn about <a href="https://en.wikipedia.org/wiki/Hypergeometric_distribution#Multivariate_hypergeometric_distribution" target="_blank">multivariate hypergeometric distributions</a>, <a href="https://en.wikipedia.org/wiki/Monte_Carlo_method" target="_blank">Monte Carlo method simulations</a>, and more.</p>
+
+<p>Oh and that original queston? Turns out the probability of my deck getting the perfect threshold on turn four is ~33%. A single mulligan brings that to 62%, tossing two Sites increases it to 78%, and a full mulligan of the site hand is roughly 87%.</p>
+
+<p>This project was a fun adventure, and my Sorcery decks have a stronger showing because of it. Feel free to check it out on <a href="https://github.com/andymaul123/sorcery-threshold" target="_blank">Github</a>.</p>
 
 
 </div>
