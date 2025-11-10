@@ -7,25 +7,16 @@
     <section>
       <div class="row">
         <div class="twelve columns">
+          <%- include('partials/logo-header') %>
           <%- include('partials/new-nav') %>
+          <%- body %>
         </div>
       </div>
-        <div class="row">
-            <div class="nine columns blog">
-                
-                <h1><%= page.title %></h1>
-                <div class="post-date right"><%= page.date %></div>
-                <div><%- body %></div>
-            </div>
-            
-            <div class="three columns archives">
-                <h2>Archives</h2>
-                <%- include('partials/archives') %>
-            </div>
-        </div>
     </section>
   </div>
   <%- include('partials/footer') %>
+
+
   <%- include('partials/scripts-global') %>
   <%- include('partials/scripts-typewriter') %>
 

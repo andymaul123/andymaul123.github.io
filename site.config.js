@@ -6,6 +6,6 @@ module.exports = {
   site: {
     title: "Andrew Maul",
     year: "2025",
-    latest: "2025-06-28_elemental-probability"
+    latest: "2025-11-08_recursive-probability"
   }
 };

@@ -1,0 +1,46 @@
+---
+layout: post
+title: Recursive Probability 
+date: November 2025
+---
+<div class="post-content-two-items">
+    <div>
+        <p>
+            <span class="dropcap">T</span>his is a follow-up to my previous blog post, <a href="/posts/2025-11-08_recursive-probability">Elemental Probability</a>, which should be read prior to this one for context. Earlier this year I released v1.0 of the CLI tool. I wasn't entirely happy with the logic, but it "worked" and I wanted to move onto something else. (That something else was a gigantic portrait of my girlfriend and I. It now hangs in our living room, but that's a story for another time.) I used the tool to run probabilities on a few of my sorcery decks, and was content with it all until...I ran into a bug.
+        </p>
+
+        <p>Like pulling a thread from a shirt, the more I pulled the more it all unraveled. There were serious flaws in the approach, the least of which was the spaghetti mess of loops it relied on. Back to the drawing board I went.</p>
+    </div>
+    <div>
+        <%- include('partials/post-image', {imgpath: "/image/posts/2025-11-08_recursive-probability/colour.png", caption: ""}) %>
+    </div>
+</div>
+
+<h2>Breakdown</h2>
+
+<p>One of my goals for 2.0 was to replace the 'combinations-generator' portion of the app with something more elegant. The tool is divided into three main parts: the combinations generator, the math to derive probability, and a simulation to corroborate results. I hoped that by re-writing the combinations generator from the ground up that I could fix the bugs at the same time. The simulation and math portions of the tooling just needed a few minor tweaks; turns out math doesn't need to change all that much once you've figured it out.</p>
+
+<h3>Simulation</h3>
+
+<p>The easiest part of this app was writing (and subsequently re-writing) the simulation. Midway through the first version I made a <strong>critical</strong> mistake in coupling the simulation with the combinations generator. In order to function as a check, the simulation portion needs to be completely independent from the combinations generator. So what does the simulation actually do?</p>
+
+<p>Given a number of iterations, the tool sets up the card deck as an array and randomly generates N numbers (for simplicity here, three). The three random numbers select three indices from the card array. The symbols on those three cards are aggregated, and then checked against the resulting criteria. If it's a success, a counter is incremented. The successes are divided by the total runs and that's it, a probability is generated.</p>
+
+<h3>The Math</h3>
+<p>A multivariate hypergeometric distribution is the very fancy name given to the type of math used in determining probability here. It sets up a giant equation that boils down to the following question: for every unique combination of cards drawn that satisfy the criteria, what is the probability of drawing that combination? </p>
+
+<div>
+    <%- include('partials/post-image', {imgpath: "/image/posts/2025-11-08_recursive-probability/wikipedia.png", caption: "Example from wikipedia: binomial distribution without replacement"}) %>
+</div>
+
+<p>That single probability is cumulatively added along with <em>every other unique combination</em> to arrive at the final probability. Finding all of those combinations is the hard part.</p>
+
+<h3>Generating Combinations</h3>
+<p>This is where the bugs came from, and the mess I wanted to clean up. On my second attempt I knew I wanted to write a recursive function that would perform a brute-force "walk" of the card array, testing each combination as it went. This was made more difficult by a dynamic number of cards to be drawn. I settled on using a 'pointer' array to track which combination of cards was being looked at. The recursive function calls itself over and over, passing in the accumulated data from the previous run until it meets the exit condition.</p>
+
+<p>What I didn't know going into this was that a recursive approach was going to quickly reach Node's built in stack limit, a problem that doesn't occur through looped iteration. Thus I hit a developer milestone: the stack overflow. I was very excited - I was a real dev, now! The solution was less exciting, and required building in a setTimout function that allowed Node to clear its stack, and requiring me to update the tool into asynchronous code.</p>
+
+<h2>Au revoir, mon ami</h2>
+<p>Version 2.0 is up on my <a href="https://github.com/andymaul123/sorcery-threshold" target="_blank">Github</a>. Not only did I fix the bugs and implement cleaner logic, I added a robust test suite along the way. Due to the complexity of this project I had to rely on abstracting as much logic into testable parts as I could. The simulation, now properly decoupled from the generations combinator, provides a much tighter band of probability than previously.</p>
+
+<p>All in all I am very pleased with 2.0, and equally ready to not look at it again.</p>
