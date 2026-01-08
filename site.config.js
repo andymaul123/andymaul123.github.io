@@ -5,7 +5,7 @@ module.exports = {
   },
   site: {
     title: "Andrew Maul",
-    year: "2025",
+    year: "2026",
     latest: "2025-11-08_recursive-probability"
   }
 };
