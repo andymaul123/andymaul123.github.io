@@ -1,0 +1,431 @@
+---
+layout: default
+title: sorcery-calculator
+---
+
+  <h1>Sorcery Threshold Calculator</h1>
+  
+
+  <form>
+    <label for="decklist">Atlas List</label>
+    <textarea id="decklist"></textarea>
+    <label for="earth">Earth</label>
+    <input type="number" id="earth" name="earth" min="0" max="10" value="0" />
+    <label for="air">Air</label>
+    <input type="number" id="air" name="air" min="0" max="10" value="0"/>
+    <label for="fire">Fire</label>
+    <input type="number" id="fire" name="fire" min="0" max="10" value="0"/>
+    <label for="water">Water</label>
+    <input type="number" id="water" name="water" min="0" max="10" value="0"/>
+    <label for="draws">Draws</label>
+    <input type="number" id="draws" name="draws" min="1" max="7" value="3"/>
+    <button id="generate">Generate</button>
+  </form>
+  <p id="output"></p>
+  <script type="text/javascript">
+
+
+/**
+ * Calculates binomial coefficient; how many ways to choose k items from n items without repetition or order
+ * Taken from https://www.30secondsofcode.org/js/s/binomial-coefficient/
+ * @param {number} n
+ * @param {number} k
+ * @returns {number} 
+ */
+ function binomialCoefficient (n, k) {
+  if (Number.isNaN(n) || Number.isNaN(k)) return NaN;
+  if (k < 0 || k > n) return 0;
+  if (k === 0 || k === n) return 1;
+  if (k === 1 || k === n - 1) return n;
+  if (n - k < k) k = n - k;
+
+  let res = n;
+  for (let i = 2; i <= k; i++) res *= (n - i + 1) / i;
+  return Math.round(res);
+};
+
+/**
+ * Creates a sequential array of numbers like [0,1,2] based on a number (3)
+ * @param {number} drawCount
+ * @returns {Array<number>} 
+ */
+ function createInitialPointerArray(drawCount) {
+    const pointerArray=[];
+    if(drawCount && drawCount > 0) {
+        for (let index = 0; index < drawCount; index++) {
+            pointerArray.push(index);
+        }
+    }
+    return pointerArray;
+}
+
+/**
+ * Creates a frequency map of symbols given a string array of values
+ * @param {Array<String>} inputArray
+ * @returns {Object}
+ */
+ function createFrequencyMap(inputArray) {
+    const criteriaFrequencyMap = {};
+    for (let index = 0; index < inputArray.length; index++) {
+        if(!criteriaFrequencyMap.hasOwnProperty(inputArray[index])){
+            criteriaFrequencyMap[inputArray[index]] = inputArray.filter((letter) => letter == inputArray[index]).length;
+        }
+    }
+    return criteriaFrequencyMap;
+}
+
+/**
+ * Clips a long decimal number to something more readable. Doesn't round the fractional value because I don't care.
+ * @param {number | string} value
+ * @returns {string}
+ */
+ function cleanTrailingFloatingPoint(value) {
+    const hasDecimal = String(value).indexOf('.');
+    return hasDecimal > -1 ? String(value).slice(0,hasDecimal+2) : String(value + ".0");
+}
+
+/**
+ * Given a string and an indexed position, extract the position and return the other two halves glued back together
+ * @param {string} str
+ * @param {number} index
+ * @returns {string}
+ */
+ function extractStringSection(str, index) {
+    return str.substring(0, index) + str.substring(index+1);
+}
+
+/**
+ * Validates a possible combination by looping through each element in the criteria and 
+ * doing a string search for that character. If found, the character is removed and the loop continues.
+ * If one is not found, it early returns.
+ * @param {Array<string>} possibleCombination
+ * @param {Array<string>} criteria
+ * @returns {boolean} 
+ */
+ function combinationValidator(possibleCombination, criteria) {
+    let copiedCombination = possibleCombination;
+    for (let index = 0; index < criteria.length; index++) {
+        const indexedPosition = copiedCombination.indexOf(criteria[index]);
+        if(indexedPosition > -1) {
+            const mutatedString = extractStringSection(copiedCombination, indexedPosition);
+            copiedCombination = mutatedString;
+        } 
+        else {
+            return false;
+        }
+    }
+    return true;
+}
+
+/**
+ * Determines whether the position in the 'pointer array' is at its end, and the array positions should be reset
+ * @param {Array<number>} pointerArray
+ * @param {number} currentPointerPosition
+ * @param {number} siteDeckTotal
+ * @returns {boolean} 
+ */
+ function shouldResetPointers(pointerArray, currentPointerPosition, siteDeckTotal) {
+    // If there's only a single value in the pointer array it never needs to be reset 
+    if(pointerArray.length <= 1) {
+        return false;
+    }
+    // The highest index in the array will be equal to the length of the array minus one
+    const upperBound = siteDeckTotal - 1;
+    
+    // The rightmost position in a horizontal array has a position delta of 0
+    // Each position to the left of it increases its delta by 1
+    const positionDelta = Math.abs(currentPointerPosition - (pointerArray.length - 1));
+    return pointerArray[currentPointerPosition] >= (upperBound - positionDelta);
+}
+
+/**
+ * Resets the pointer index
+ * @param {Array<number>} pointerArray
+ * @param {number} currentPointerPosition
+ * @returns {Array<number>} 
+ */
+ function resetPointers(pointerArray, currentPointerPosition) {
+    pointerArray[currentPointerPosition - 1] = pointerArray[currentPointerPosition - 1] + 1;
+
+    for (let index = currentPointerPosition; index < pointerArray.length; index++) {
+        pointerArray[index] = pointerArray[index-1] + 1;
+    }
+    return pointerArray;
+}
+
+/**
+ * Resets the pointer position
+ * @param {Array<number>} pointerArray
+ * @param {number} currentPointerPosition
+ * @param {number} siteDeckTotal
+ * @returns {number} 
+ */
+ function resetPointerPosition(pointerArray, currentPointerPosition, siteDeckTotal) {
+    const upperBound = siteDeckTotal - 1;
+    
+    if(pointerArray[currentPointerPosition] >= upperBound) {
+        currentPointerPosition--;
+    }
+    else {
+        currentPointerPosition = pointerArray.length - 1;
+    }
+    return currentPointerPosition;
+}
+
+/**
+ * This does the heavy lifting. It is a recursive, brute-force function that walks through every combination from the given parameters.
+ * @param {number} drawCount
+ * @param {Array<string>} siteDeck
+ * @param {Array<string>} criteria
+ * @param {Array<number>} pointerArray
+ * @param {number} currentPointerArrayPosition
+ * @param {Array<string>} accumulatedCombinations
+ * @param {number} totalCombinations
+ * @param {number} iterations
+ * @param {boolean} skipFiltering
+ * @param {any} promiseResolution
+ * @returns {Promise<Array<Array<string>>>} 
+ */
+async function recursiveCombinator(drawCount, siteDeck, criteria, pointerArray, currentPointerArrayPosition, accumulatedCombinations, totalCombinations, iterations, skipFiltering, promiseResolution) {
+
+    // The number of combinations from 30 cards with 7 samples. Used as the upper bound to prevent infinite loops.
+    const maxSafety = 2035800;
+    const safetyNumber = maxSafety < totalCombinations ? maxSafety + 1 : totalCombinations + 1;
+
+    if(iterations >= safetyNumber) {
+        console.log(`SAFETY LIMIT REACHED, ABORTING`);
+        return promiseResolution([]);
+    }
+
+    let possibleCombination = [];
+    // Create a possible combination from the site deck using the pointerArray indexes to select N cards
+    for (let index = 0; index < pointerArray.length; index++) {
+        possibleCombination.push(siteDeck[pointerArray[index]]);
+    }
+    possibleCombination = possibleCombination.join(',');
+
+    // TODO: preemptively de-dupe the possible combinations array by flattening the array into a string and checking accumulatedCombination.some
+
+
+
+    // Flag added for ease of testing
+    if(skipFiltering) {
+        accumulatedCombinations.push(possibleCombination);
+    }
+    else if(combinationValidator(possibleCombination, criteria) && !accumulatedCombinations.includes(possibleCombination)) {
+        accumulatedCombinations.push(possibleCombination);
+    }
+    /**
+     * Reset the pointer positions. This is the key to how the structure is walked.
+     * Example
+     * Site Deck: [a,ae,f,aefw]
+     * Criteria: aefw (one of each element) in a draw of 3
+     * The drawCount three will create a 'pointer array' like so: [0,1,2]
+     * This pointer array represents three indices from the site deck; three cards chosen to be examined as a possible combination.
+     * In this example, the starting pointer array [0,1,2] would indicate cards a,ae,f.
+     * The goal is to look at a possible combination, evaluate it, and then update the pointer array and pass all of the data back
+     * into the recursive function.
+     * 
+     * If you were to write out the site deck elements in a vertical list and manually step through all of the combinations you may arrive at
+     * the following:
+     * [0,1,2] -> a,ae,f        
+     * [0,1,3] -> a,ae,aefw
+     * [0,2,3] -> a,f,aefw
+     * [1,2,3] -> ae,f,aefw
+     * 
+     * currentPointerArrayPosition refers to which index is currently being evaluated
+     * 
+     * The first if statement checks if the current position is at its end. In our example, the last card in the deck is index 3.
+     * If it exceeds the limit, the pointer array is 'reset'. It moves from right to left.
+     * Example: when the iteration is [0,1,3] we know it cannot go to [0,1,4] because there is no card at position 4. 
+     * The pointer position is moved, and it and all positions to the right of it are incremented/reset. 
+     * Thus, the next pointer array would be [0,2,3].
+     * 
+     * If the pointer array doesn't need to be reset, increment the current position by 1.
+     * 
+     * Iterations are tracked and compared to the total combinations possible, ending the recursion.
+     */
+    if(shouldResetPointers(pointerArray, currentPointerArrayPosition, siteDeck.length)) {
+        pointerArray = resetPointers(pointerArray, currentPointerArrayPosition);
+        currentPointerArrayPosition = resetPointerPosition(pointerArray, currentPointerArrayPosition, siteDeck.length);
+    }
+    else {
+        pointerArray[currentPointerArrayPosition] = pointerArray[currentPointerArrayPosition] + 1;
+    }
+
+    if(iterations == totalCombinations) {
+       promiseResolution(accumulatedCombinations);
+    }
+    // This bizarre piece of code is needed to prevent a stack overflow. Performing a setTimeout every 1000 iterations allows Node to clear its stack before continuing on.
+    // Unfortunately this problem means I had to convert this to an async function
+    else if(iterations % 1000 == 0) {
+        setTimeout(function() {
+            recursiveCombinator(drawCount, siteDeck, criteria, pointerArray, currentPointerArrayPosition, accumulatedCombinations, totalCombinations, iterations+1, skipFiltering, promiseResolution);
+        }, 0);
+    }
+    else {
+        recursiveCombinator(drawCount, siteDeck, criteria, pointerArray, currentPointerArrayPosition, accumulatedCombinations, totalCombinations, iterations+1, skipFiltering, promiseResolution);
+    }
+}
+
+/**
+ * Returns an array of combinations that satisfy a given criteria and sample size.
+ * For example, it answers the question "How many 2-card combinations would give me two air threshold in my 30 card site deck?"
+ * @param {Array<string>} siteDeck
+ * @param {Array<string>} criteria
+ * @param {number} drawCount
+ * @param {boolean} [skipFiltering]
+ * @returns {Array<string>} 
+ */
+ async function generateCombinations(siteDeck, criteria, drawCount, skipFiltering=false) {
+    const pointerArray = createInitialPointerArray(drawCount);
+    const totalCombinations = binomialCoefficient(siteDeck.length, drawCount);
+    const accumulatedCombinations = [];
+    const combinations = await new Promise((resolve, reject) => {
+        return recursiveCombinator(drawCount, siteDeck, criteria, pointerArray, drawCount-1, accumulatedCombinations, totalCombinations, 1, skipFiltering, resolve);
+    });
+    return combinations;
+}
+
+/**
+ * Takes a string, lowercases it, and normalizes spaces into underscores so names can be used as object keys
+ * @param {string} name
+ * @returns {string} 
+ */
+function normalizeName(name) {
+  return name.toLowerCase().replace(/ /g,"_");
+}
+
+/**
+ * Converts the list of sites into an array of threshold symbols the sites provide
+ * @param {string} input
+ * @returns {Array<string>} 
+ */
+ function convertDeckListToSymbols(input, thresholdData) {
+  const tempArray = input.split(/\n|\r/g);
+  let symbolsArray = [];
+
+  for (let index = 0; index < tempArray.length; index++) {
+    const count = tempArray[index].substring(0,1);
+    const name = normalizeName(tempArray[index].substring(3));
+    if(!isNaN(count)) {
+      for (let index = 0; index < count; index++) {
+        // For sites that don't produce threshold, mark with an 'x' instead of omitting
+        // This preserves overall count, e.g. 30, of the decklist for reasons later
+        if(thresholdData[name] == "") {
+          symbolsArray.push("x");
+        } else {
+          symbolsArray.push(thresholdData[name]);
+        }
+      }
+    }
+  }
+  symbolsArray = symbolsArray.filter(function(item){
+    return item != "";
+});
+  return symbolsArray.sort();
+}
+
+/**
+ * Runs a MHD calculation for a given possible combination state
+ * @param {Array<string>} siteDeck
+ * @param {Array<string>} singlePossibleCombination
+ * @param {number} drawCount
+ * @returns {number} 
+ */
+function multivariateHypergeometricDistribution(siteDeck, singlePossibleCombination) {
+  // Convert the string signature back into an array
+  const revivedCombination = singlePossibleCombination.split(',');
+  let numerator = 1;
+  let cumulativeMatches = 0;
+  const combinationSymbolsFrequencyMap = createFrequencyMap(revivedCombination);
+
+  // For each symbol in combinationSymbolsFrequencyMap, determine the number of cards in the site deck that are an exact match.
+  // This will be the top number in a binomial coefficient calculation.
+  // desiredMatchCount is the corresponding frequency of that symbol.
+  // Add the number of exactMatches to the running tally, then calculate the binomial coefficient and multiply it by the previous results (or 1, if it's the first)
+  for (const key in combinationSymbolsFrequencyMap) {
+    if (Object.prototype.hasOwnProperty.call(combinationSymbolsFrequencyMap, key)) {
+      const exactMatches = siteDeck.filter((item) => item == key).length;
+      const desiredMatchCount = combinationSymbolsFrequencyMap[key];
+      cumulativeMatches += exactMatches;
+      numerator = numerator * binomialCoefficient(exactMatches, desiredMatchCount);
+    }
+  }
+  // The last item in the numerator of the MHD calculation is the binomial coefficient of the 'non-matches', if any
+  // i.e. the rest of the deck in the top and zero in the bottom of a binomial coefficient calculation
+  const finalSuccessState = siteDeck.length - cumulativeMatches;
+  if(finalSuccessState > 0) {
+    numerator = numerator * binomialCoefficient(finalSuccessState, 0);
+  }
+  // The denominator of the MHD calculation is a single binomial coefficient with the total site deck over the 'draw count', or number of symbols in the 
+  // singlePossibleCombination array
+  const denominator = binomialCoefficient(siteDeck.length, revivedCombination.length);
+
+  const result = numerator / denominator;
+  return result;
+}
+
+/**
+ * Runs a MHD calculation on every possible success combination to find that particular probability, and adds them up for a resulting cumulative probability
+ * @param {Array<string>} siteDeck
+ * @param {Array<Array<string>>} allPossibleCombinations
+ * @param {number} drawCount
+ * @returns {number} 
+ */
+ function deriveProbability(siteDeck, allPossibleCombinations) {
+  let cumulativeOdds = 0;
+  for (let index = 0; index < allPossibleCombinations.length; index++) {
+      cumulativeOdds += multivariateHypergeometricDistribution(siteDeck, allPossibleCombinations[index]);
+  }
+  return cumulativeOdds * 100;
+}
+
+const thresholdData = {"cloud_city":"a","dark_tower":"a","gothic_tower":"a","lone_tower":"a","mountain_pass":"a","observatory":"a","updraft_ridge":"a","watchtower":"a","bedrock":"e","gnome_hollows":"e","holy_ground":"e","humble_village":"e","kingdom_of_agartha":"e","pillar_of_zeiros":"e","quagmire":"e","rift_valley":"e","rustic_village":"e","secret_tunnel":"e","simple_village":"e","vantage_hills":"e","arid_desert":"f","dwarven_forge":"f","mirage":"f","red_desert":"f","remote_desert":"f","river_of_flame":"f","shifting_sands":"f","smokestacks_of_gnaak":"f","vesuvius":"f","autumn_river":"w","floodplain":"w","iceberg":"w","island_leviathan":"w","maelström":"w","spring_river":"w","summer_river":"w","tadpole_pool":"w","undertow":"w","aqueduct":"ew","lighthouse":"aw","oasis":"fw","pristine_paradise":"aefw","ruins":"af","steppe":"ef","the_colour_out_of_space":"aefw","windmill":"ae","astral_alcazar":"","battlefield":"","boneyard":"","bottomless_pit":"","cornerstone":"","crossroads":"","dome_of_osiros":"","donnybrook_inn":"","edge_of_the_world":"","free_city":"","great_wall":"","imperial_road":"","mirror_realm":"","mudflow":"","planar_gate":"","primordial_spring":"","roots_of_yggdrasil":"","sinkhole":"","standing_stones":"","the_geistwood":"","vaults_of_zul":"","winter_river":"w","spire":"a","stream":"w","valley":"e","wasteland":"f","annual_fair":"","avalon":"aefw","babbling_brook":"w","beacon":"a","bog":"w","bonfire":"f","bower_of_bliss":"","briar_patch":"e","brocéliande":"","caerleon-upon-usk":"efw","camelot":"","common_village":"e","cursed_land":"f","dozmary_pool":"w","fae_city":"a","fields_of_camlann":"f","forge":"f","funeral_pyre":"f","glastonbury_tor":"aef","hamlet":"","hunter's_lodge":"e","impenetrable_copse":"e","joyous_garde":"afw","kelp_cavern":"w","leyline_henge":"","lookout":"a","major_city":"","merlin's_tower":"a","pebbled_paths":"e","perilous_bridge":"a","poisoned_well":"f","pond":"w","postern_gate":"","tintagel":"aew","tournament_grounds":"","town":"","treetop_hideout":"a","troll_bridge":"w","valley_of_delight":"","varmint_warrens":"e","wedding_hall":"aefw","wizard's_den":"","wormelow_tump":"e","dragonlord's_lair":"","rubble":"","river_of_blood":"f","haystack":"e","fields_of_phyxis":"a","accursed_desert":"f","accursed_tower":"a","active_volcano":"ff","algae_bloom":"w","altar_of_malachai":"","autumn_bloom":"e","baba_yaga's_hut":"","blessed_village":"e","blessed_well":"w","boulevard_of_bones":"e","bureau_of_occult_control":"","city_of_glass":"","city_of_plenty":"","city_of_souls":"","city_of_traitors":"","consecrated_ground":"e","croaking_swamp":"w","dark_alley":"a","darkest_dungeon":"","deep_sea":"ww","defiler_spire":"a","den_of_evil":"a","desecrated_ground":"a","desert_bloom":"f","dread_thicket":"a","elder_ruins":"w","endless_fence":"e","ersatz_platz":"","fertile_earth":"ee","forgotten_tomb":"e","forlorn_keep":"e","forsaken_crypt":"a","garden_of_eden":"ew","ghost_town":"","gilman_house":"w","heirloom_lost":"","hellmouth":"f","hillside_chapel":"e","horns_of_behemoth":"f","infusion_factory":"","innsmouth_dock":"w","kor_crematory":"f","leadworks":"f","mismanaged_mortuary":"","molten_maar":"f","mountain_peaks":"aa","mount_ussar_sanctuary":"e","mudslide":"w","myrrh's_trophy_room":"","no_man's_land":"e","old_mortimer's_den":"","open_grave":"e","open_mausoleum":"a","orpheus'_crossing":"a","peculiar_port":"w","pilgrim's_shrine":"e","plague_pits":"f","purgatory":"f","river_rapids":"w","road_to_perdition":"f","saintweald":"","sea_of_ash":"","shallow_grave":"e","shrike_orchard":"a","silent_hills":"e","sinister_pond":"w","sold-out_cemetery":"a","sphinx_sarcophagus":"","spore_spouts":"a","stinging_kelp":"w","temple_of_moloch":"f","the_apex_of_babel":"a","the_base_of_babel":"e","the_empyrean":"","the_manor_at_daperyll_hill":"a","the_void":"","thin_ice":"w","trade_encampment":"","troubled_town":"","twilight_bloom":"a","vast_desert":"f","vindictive_nation":"f","watery_grave":"w","wuthering_heights":"a"};
+
+
+
+async function formSubmit(event) {
+    event.preventDefault();
+    console.log('clicked!');
+    const outputElement = document.getElementById("output");
+    const decklist = document.getElementById("decklist").value;
+    const draws = document.getElementById("draws").value;
+
+    const thresholdObject = {
+        earth: document.getElementById("earth").value,
+        air: document.getElementById("air").value,
+        fire: document.getElementById("fire").value,
+        water: document.getElementById("water").value
+    };
+
+    const criteria = [];
+
+    for (const key in thresholdObject) {
+      if (Object.prototype.hasOwnProperty.call(thresholdObject, key)) {
+        for (let index = 0; index < thresholdObject[key]; index++) {
+          criteria.push(key.substring(0,1));
+        }
+      }
+    }
+    
+
+    const siteDeckSymbols = convertDeckListToSymbols(decklist, thresholdData);
+
+    const possibleSuccessCombinations = await generateCombinations(siteDeckSymbols, criteria, draws);
+
+    const probability = deriveProbability(siteDeckSymbols, possibleSuccessCombinations, draws);
+
+    outputElement.innerText = `Probability of getting ${criteria} in ${draws} draws is ${cleanTrailingFloatingPoint(probability)}%`;
+}
+
+
+
+function init() {
+    const generateButton = document.getElementById("generate");
+    generateButton.addEventListener('click', formSubmit);
+}
+
+init();
+  </script>
+

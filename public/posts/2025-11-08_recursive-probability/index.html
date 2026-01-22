@@ -173,23 +173,6 @@
 
   <!-- Prism.js syntax highlighting -->
 <script type="text/javascript" src="/js/prism.js"></script>
-  <script type="text/javascript">
-
-    const inputElement = document.getElementById('animation-input');
-    const message = "Developer. Writer. Artist.";
-    let count = 0;
-
-    const animation = setInterval(function(){
-        inputElement.value = message.slice(0, count);
-        if(count >= message.length){
-            clearInterval(animation);
-            inputElement.classList.add('fadeToWhite');
-        } else {
-            count++;
-        }
-    }, 125);
-
-  </script>
 
 </body>
 </html>
