@@ -167,12 +167,34 @@
   <div class="foot-right">
     <a href="https://github.com/andymaul123" target="new" class="no-underline footer-link"><span class="icon-github icon"></span></a>
     <a href="https://www.linkedin.com/in/andymaul" target="new" class="no-underline footer-link"><span class="icon-linkedin2 icon"></span></a>
+    <a href="/feed.xml" target="new" class="no-underline footer-link" id="rss-button"><span class="icon-rss2 icon"></span></a>
   </div>
 </footer>
 
 
   <!-- Prism.js syntax highlighting -->
 <script type="text/javascript" src="/js/prism.js"></script>
+  <script type="text/javascript">
+
+    console.log("rss script ran!");
+    const rssButton = document.getElementById('rss-button');
+    rssButton.addEventListener("click", (e) => {
+        e.preventDefault();
+        writeClipboardText("https://andrewmaul.com/feed.xml")
+    });
+
+    async function writeClipboardText(text) {
+        
+        try {
+            await navigator.clipboard.writeText(text);
+            alert('RSS url copied to clipboard!');
+        } catch (error) {
+            console.error(error.message);
+        }
+    }
+
+
+</script>
 
 </body>
 </html>

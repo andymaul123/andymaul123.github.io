@@ -5,8 +5,9 @@
   "main": "index.js",
   "scripts": {
     "start": "sass src/sass/index.scss src/assets/css/styles.css && nanogen start",
-    "build": "nanogen build",
-    "css": "sass src/sass/index.scss src/assets/css/styles.css"
+    "build": "nanogen build && node scripts/rss.mjs",
+    "css": "sass src/sass/index.scss src/assets/css/styles.css",
+    "rss": "node scripts/rss.mjs"
   },
   "repository": {
     "type": "git",

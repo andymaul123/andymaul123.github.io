@@ -1,0 +1,22 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>Andrew Maul - Blog</title>
+        <link>https://andrewmaul.com/blog</link>
+        <description>Recent content</description>
+        <language>en-us</language>
+        <lastBuildDate>Sat, 31 Jan 2026 00:00:00 +0000</lastBuildDate>
+        <atom:link href="https://andrewmaul.com/feed.xml" rel="self" type="application/rss+xml"/>
+
+        <item>
+            <title>Recursive Probability</title>
+            <link>https://andrewmaul.com/posts/2025-11-08_recursive-probability/</link>
+            <pubDate>Tue, 08 Nov 2025 00:00:00 +0000</pubDate>
+            <guid>https://andrewmaul.com/posts/2025-11-08_recursive-probability/</guid>
+            <description>
+                <p>Follow up to my previous post titled 'Elemental Probability', and a discussion on the development of a probability calculator for the card game Sorcery: The Contested Realm.</p>
+            </description>
+        </item>
+
+
+    </channel>
+</rss>

@@ -1,0 +1,21 @@
+<script type="text/javascript">
+
+    console.log("rss script ran!");
+    const rssButton = document.getElementById('rss-button');
+    rssButton.addEventListener("click", (e) => {
+        e.preventDefault();
+        writeClipboardText("https://andrewmaul.com/feed.xml")
+    });
+
+    async function writeClipboardText(text) {
+        
+        try {
+            await navigator.clipboard.writeText(text);
+            alert('RSS url copied to clipboard!');
+        } catch (error) {
+            console.error(error.message);
+        }
+    }
+
+
+</script>
