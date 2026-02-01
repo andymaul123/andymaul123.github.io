@@ -1,6 +1,4 @@
 <script type="text/javascript">
-
-    console.log("rss script ran!");
     const rssButton = document.getElementById('rss-button');
     rssButton.addEventListener("click", (e) => {
         e.preventDefault();
@@ -8,7 +6,6 @@
     });
 
     async function writeClipboardText(text) {
-        
         try {
             await navigator.clipboard.writeText(text);
             alert('RSS url copied to clipboard!');
@@ -16,6 +13,4 @@
             console.error(error.message);
         }
     }
-
-
 </script>
