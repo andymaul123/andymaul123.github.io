@@ -1,22 +1,124 @@
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
-    <channel>
-        <title>Andrew Maul - Blog</title>
-        <link>https://andrewmaul.com/</link>
-        <description>Recent content</description>
-        <language>en-us</language>
-        <lastBuildDate>Sat, 31 Jan 2026 00:00:00 +0000</lastBuildDate>
-        <atom:link href="https://andrewmaul.com/feed.xml" rel="self" type="application/rss+xml"/>
-
-        <item>
-            <title>Recursive Probability</title>
-            <link>https://andrewmaul.com/posts/2025-11-08_recursive-probability/</link>
-            <pubDate>Tue, 08 Nov 2025 00:00:00 +0000</pubDate>
-            <guid>https://andrewmaul.com/posts/2025-11-08_recursive-probability/</guid>
-            <description>
-                <p>Follow up to my previous post titled 'Elemental Probability', and a discussion on the development of a probability calculator for the card game Sorcery: The Contested Realm.</p>
-            </description>
-        </item>
-
-
-    </channel>
-</rss>
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <title>Andrew Maul - Blog</title>
+    <link href="https://andrewmaul.com" />
+    <id>tag:andrewmaul.com,2026-02-01:/root</id>
+    <author>
+        <name>Andrew Maul</name>
+    </author>
+    <updated>2026-02-02T06:55:36.772Z</updated>
+    <entry>
+        <title>Recursive Probability</title>
+        <link href="https://andrewmaul.com/posts/2025-11-08_recursive-probability" />
+        <id>tag:andrewmaul.com,2025-11-08:/posts/2025-11-08_recursive-probability</id>
+        <updated>2025-11-08T00:00:00Z</updated>
+        <summary>Follow up to my previous post titled 'Elemental Probability', and a discussion on
+            the development of a probability calculator for the card game Sorcery: The Contested
+            Realm.</summary>
+        <content type="html">
+            <p>Follow up to my previous post titled 'Elemental Probability', and a discussion on the
+                development of a probability calculator for the card game Sorcery: The Contested
+                Realm.</p>
+        </content>
+    </entry>
+    <entry>
+        <title>Elemental Probability</title>
+        <link href="https://andrewmaul.com/posts/2025-06-28_elemental-probability" />
+        <id>tag:andrewmaul.com,2025-06-28:/posts/2025-06-28_elemental-probability</id>
+        <updated>2025-06-28T00:00:00Z</updated>
+        <summary>Discussion on the development of a probability calculator for the card game
+            Sorcery: The Contested Realm.</summary>
+        <content type="html">
+            <p>Discussion on the development of a probability calculator for the card game Sorcery:
+                The Contested Realm.</p>
+        </content>
+    </entry>
+    <entry>
+        <title>Dev Log: Retro Asset Pipeline</title>
+        <link href="https://andrewmaul.com/posts/2025-02-17_dev-log_retro-asset-pipeline" />
+        <id>tag:andrewmaul.com,2025-02-17:/posts/2025-02-17_dev-log_retro-asset-pipeline</id>
+        <updated>2025-02-17T00:00:00Z</updated>
+        <summary>Developer log on creating an asset pipeline using 2d assets and creating faux pixel
+            art.</summary>
+        <content type="html">
+            <p>Developer log on creating an asset pipeline using 2d assets and creating faux pixel
+                art.</p>
+        </content>
+    </entry>
+    <entry>
+        <title>Website Re-launch!</title>
+        <link href="https://andrewmaul.com/posts/2024-08-11_website-relaunch" />
+        <id>tag:andrewmaul.com,2024-08-11:/posts/2024-08-11_website-relaunch</id>
+        <updated>2024-08-11T00:00:00Z</updated>
+        <summary>Quick post about re-launching this website.</summary>
+        <content type="html">
+            <p>Quick post about re-launching this website.</p>
+        </content>
+    </entry>
+    <entry>
+        <title>Dunes & Dusk</title>
+        <link href="https://andrewmaul.com/posts/2024-08-07_dunes-and-dusk" />
+        <id>tag:andrewmaul.com,2024-08-07:/posts/2024-08-07_dunes-and-dusk</id>
+        <updated>2024-08-07T00:00:00Z</updated>
+        <summary>Showing off progress on a web-based point and click adventure game prototype.</summary>
+        <content type="html">
+            <p>Showing off progress on a web-based point and click adventure game prototype.</p>
+        </content>
+    </entry>
+    <entry>
+        <title>Pixel Art: Fakemon</title>
+        <link href="https://andrewmaul.com/posts/2023-10-31_fakemon-inktober" />
+        <id>tag:andrewmaul.com,2023-10-31:/posts/2023-10-31_fakemon-inktober</id>
+        <updated>2023-10-31T00:00:00Z</updated>
+        <summary>A project taking inked illustrations of monsters and creating pixel art sprites
+            from them.</summary>
+        <content type="html">
+            <p>A project taking inked illustrations of monsters and creating pixel art sprites from
+                them.</p>
+        </content>
+    </entry>
+    <entry>
+        <title>Art Jam: Experiments with Pixelization</title>
+        <link href="https://andrewmaul.com/posts/2023-07-01_art-jam-experiments-with-pixelization" />
+        <id>tag:andrewmaul.com,2023-07-01:/posts/2023-07-01_art-jam-experiments-with-pixelization</id>
+        <updated>2023-07-01T00:00:00Z</updated>
+        <summary>The results of an 'art-jam' where I explore destructive downsampling tools to
+            create pixel art.</summary>
+        <content type="html">
+            <p>The results of an 'art-jam' where I explore destructive downsampling tools to create
+                pixel art.</p>
+        </content>
+    </entry>
+    <entry>
+        <title>Studying the Masters</title>
+        <link href="https://andrewmaul.com/posts/2022-06-19_studying-the-masters" />
+        <id>tag:andrewmaul.com,2022-06-19:/posts/2022-06-19_studying-the-masters</id>
+        <updated>2022-06-19T00:00:00Z</updated>
+        <summary>Show and tell of two digital paintings I did through the technique of studying the
+            masters.</summary>
+        <content type="html">
+            <p>Show and tell of two digital paintings I did through the technique of studying the
+                masters.</p>
+        </content>
+    </entry>
+    <entry>
+        <title>Adventure.js</title>
+        <link href="https://andrewmaul.com/posts/2019-06-26_adventure-js" />
+        <id>tag:andrewmaul.com,2019-06-26:/posts/2019-06-26_adventure-js</id>
+        <updated>2019-06-26T00:00:00Z</updated>
+        <summary>Creating text adventure games in the browser and terminal.</summary>
+        <content type="html">
+            <p>Creating text adventure games in the browser and terminal.</p>
+        </content>
+    </entry>
+    <entry>
+        <title>EDH Banner Generator</title>
+        <link href="https://andrewmaul.com/posts/2019-02-27_banner-generator" />
+        <id>tag:andrewmaul.com,2019-02-27:/posts/2019-02-27_banner-generator</id>
+        <updated>2019-02-27T00:00:00Z</updated>
+        <summary>A tool for creating custom banners of Magic the Gathering cards.</summary>
+        <content type="html">
+            <p>A tool for creating custom banners of Magic the Gathering cards.</p>
+        </content>
+    </entry>
+</feed>

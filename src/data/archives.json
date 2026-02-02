@@ -1,0 +1,84 @@
+{
+    "archives": [
+        {
+            "title": "Recursive Probability",
+            "path": "/posts/2025-11-08_recursive-probability",
+            "date": "Nov 2025",
+            "id": "tag:andrewmaul.com,2025-11-08:/posts/2025-11-08_recursive-probability",
+            "updated": "2025-11-08T00:00:00Z",
+            "summary": "Follow up to my previous post titled 'Elemental Probability', and a discussion on the development of a probability calculator for the card game Sorcery: The Contested Realm."
+        },
+        {
+            "title": "Elemental Probability",
+            "path": "/posts/2025-06-28_elemental-probability",
+            "date": "Jun 2025",
+            "id": "tag:andrewmaul.com,2025-06-28:/posts/2025-06-28_elemental-probability",
+            "updated": "2025-06-28T00:00:00Z",
+            "summary": "Discussion on the development of a probability calculator for the card game Sorcery: The Contested Realm."
+        },
+        {
+            "title": "Dev Log: Retro Asset Pipeline",
+            "path": "/posts/2025-02-17_dev-log_retro-asset-pipeline",
+            "date": "Feb 2025",
+            "id": "tag:andrewmaul.com,2025-02-17:/posts/2025-02-17_dev-log_retro-asset-pipeline",
+            "updated": "2025-02-17T00:00:00Z",
+            "summary": "Developer log on creating an asset pipeline using 2d assets and creating faux pixel art."
+        },
+        {
+            "title": "Website Re-launch!",
+            "path": "/posts/2024-08-11_website-relaunch",
+            "date": "Aug 2024",
+            "id": "tag:andrewmaul.com,2024-08-11:/posts/2024-08-11_website-relaunch",
+            "updated": "2024-08-11T00:00:00Z",
+            "summary": "Quick post about re-launching this website."
+        },
+        {
+            "title": "Dunes & Dusk",
+            "path": "/posts/2024-08-07_dunes-and-dusk",
+            "date": "Aug 2024",
+            "id": "tag:andrewmaul.com,2024-08-07:/posts/2024-08-07_dunes-and-dusk",
+            "updated": "2024-08-07T00:00:00Z",
+            "summary": "Showing off progress on a web-based point and click adventure game prototype."
+        },
+        {
+            "title": "Pixel Art: Fakemon",
+            "path": "/posts/2023-10-31_fakemon-inktober",
+            "date": "Oct 2023",
+            "id": "tag:andrewmaul.com,2023-10-31:/posts/2023-10-31_fakemon-inktober",
+            "updated": "2023-10-31T00:00:00Z",
+            "summary": "A project taking inked illustrations of monsters and creating pixel art sprites from them."
+        },
+        {
+            "title": "Art Jam: Experiments with Pixelization",
+            "path": "/posts/2023-07-01_art-jam-experiments-with-pixelization",
+            "date": "Jul 2023",
+            "id": "tag:andrewmaul.com,2023-07-01:/posts/2023-07-01_art-jam-experiments-with-pixelization",
+            "updated": "2023-07-01T00:00:00Z",
+            "summary": "The results of an 'art-jam' where I explore destructive downsampling tools to create pixel art."
+        },
+        {
+            "title": "Studying the Masters",
+            "path": "/posts/2022-06-19_studying-the-masters",
+            "date": "Jun 2022",
+            "id": "tag:andrewmaul.com,2022-06-19:/posts/2022-06-19_studying-the-masters",
+            "updated": "2022-06-19T00:00:00Z",
+            "summary": "Show and tell of two digital paintings I did through the technique of studying the masters."
+        },
+        {
+            "title": "Adventure.js",
+            "path": "/posts/2019-06-26_adventure-js",
+            "date": "Jun 2019",
+            "id": "tag:andrewmaul.com,2019-06-26:/posts/2019-06-26_adventure-js",
+            "updated": "2019-06-26T00:00:00Z",
+            "summary": "Creating text adventure games in the browser and terminal."
+        },
+        {
+            "title": "EDH Banner Generator",
+            "path": "/posts/2019-02-27_banner-generator",
+            "date": "Feb 2019",
+            "id": "tag:andrewmaul.com,2019-02-27:/posts/2019-02-27_banner-generator",
+            "updated": "2019-02-27T00:00:00Z",
+            "summary": "A tool for creating custom banners of Magic the Gathering cards."
+        }
+    ]
+}
