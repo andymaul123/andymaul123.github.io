@@ -1,6 +1,14 @@
 {
     "archives": [
         {
+            "title": "Learning Soft Pastels",
+            "path": "/posts/2026-02-04_learning-soft-pastels",
+            "date": "Feb 2026",
+            "id": "tag:andrewmaul.com,2026-02-04:/posts/2026-02-04_learning-soft-pastels",
+            "updated": "2026-02-04T17:21:49.731Z",
+            "summary": "Soft pastels' dreamy and vibrant paintings have intrigued me. After giving up on learning them in the past, I'm setting out to try again in 2026."
+        },
+        {
             "title": "Recursive Probability",
             "path": "/posts/2025-11-08_recursive-probability",
             "date": "Nov 2025",
@@ -33,7 +41,7 @@
             "summary": "Quick post about re-launching this website."
         },
         {
-            "title": "Dunes & Dusk",
+            "title": "Dunes &amp; Dusk",
             "path": "/posts/2024-08-07_dunes-and-dusk",
             "date": "Aug 2024",
             "id": "tag:andrewmaul.com,2024-08-07:/posts/2024-08-07_dunes-and-dusk",
