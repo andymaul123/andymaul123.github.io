@@ -1,0 +1,9 @@
+<div class="post-image <%= locals.float ? float : '' %> <%= locals.imgsize ? imgsize : 'full' %>">
+    <video loop autoplay class="post-image-picture outline">
+        <source src="<%= imgpath %>" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    <span class="post-image-caption">
+        <%= locals.caption ? caption : '' %>
+    </span>
+</div>

@@ -1,0 +1,12 @@
+<div class="featured-post-card outline">
+    <a href="<%= url %>">
+        <% if(locals.coords) {%>
+            <img class="featured-post-card-image" src="<%= image %>" style="object-position: <%= coords %>;"/>
+        <% } else {%>
+            <img class="featured-post-card-image" src="<%= image %>"/>   
+        <% } %>
+        <div class="featured-post-card-title">
+            <%= title %>
+        </div>
+    </a>
+</div>

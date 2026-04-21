@@ -7,18 +7,22 @@
     line-height: 6rem;
     padding: 0 1rem 0 0;
 }
+
 .blog h4 {
     margin-bottom: 0;
 }
+
 .archives {
     margin-top: 6rem;
 }
+
 .archives li {
     border-bottom: 1px solid $accentGray;
     list-style: none;
     margin-bottom: 2rem;
     padding-bottom: 2rem;
 }
+
 .post-date {
     color: $white;
     font-family: $title;
@@ -26,13 +30,16 @@
     letter-spacing: 0.1rem;
     margin-bottom: 2rem;
 }
-pre > code {
+
+pre>code {
     padding: 0;
 }
+
 code {
     border-width: 0px;
     padding: 0;
 }
+
 .post-image {
     display: block;
     margin-bottom: $flow-bottom;
@@ -40,23 +47,28 @@ code {
     &.half {
         max-width: 50%;
     }
+
     &.full {
         max-width: 100%;
     }
+
     &.right {
         float: right;
         margin: 0 0 1rem 1rem;
     }
+
     &.left {
         float: left;
         margin: 0 1rem 1rem 0;
     }
 }
+
 .post-image-picture {
     display: block;
     height: auto;
     max-width: 100%;
 }
+
 .post-image-caption {
     color: $textGray;
     font-style: italic;
@@ -72,9 +84,10 @@ code {
         flex-direction: row;
     }
 
-    > * {
+    >* {
         display: block;
         width: 100%;
+
         @media (min-width: 750px) {
             width: 49%;
         }
@@ -91,11 +104,30 @@ code {
         flex-direction: row;
     }
 
-    > * {
+    >* {
         display: block;
         width: 100%;
+
         @media (min-width: 750px) {
             width: 33%;
         }
     }
+}
+
+.videowrapper {
+    float: none;
+    clear: both;
+    width: 100%;
+    position: relative;
+    padding-bottom: 56.25%;
+    padding-top: 25px;
+    height: 0;
+}
+
+.videowrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
 }
