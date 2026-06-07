@@ -1,6 +1,14 @@
 {
     "archives": [
         {
+            "title": "Game Jam: 2d Movement",
+            "path": "/posts/2026-06-07_game-jam-movement",
+            "date": "Jun 2026",
+            "id": "tag:andrewmaul.com,2026-06-07:/posts/2026-06-07_game-jam-movement",
+            "updated": "2026-06-07T20:57:36.585Z",
+            "summary": "Exploring game development in web tech, this time around focusing on 2d movement."
+        },
+        {
             "title": "Learning Soft Pastels",
             "path": "/posts/2026-02-04_learning-soft-pastels",
             "date": "Feb 2026",

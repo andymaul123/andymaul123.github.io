@@ -1,0 +1,25 @@
+---
+layout: post
+title: 'Game Jam: 2d Movement' 
+date: June 2026
+---
+
+<div class="post-content-two-items">
+    <div>
+        <p>
+            <span class="dropcap">E</span>very now and then I want to do a tiny project, something I can sit down and finish in one or two sessions. I used to participate in <a href="https://en.wikipedia.org/wiki/Game_jam" target="_blank">game jams</a> when I was younger, and really enjoyed them. PlayStation does a hackathon once a year, too, and I joined last year. I've also had this idea bouncing around in my head for how to approach 2d movement within the constraints of traditional web paradigms. That is to say: the player sends an input, the computer responds with an output - not running a full game loop in JavaScript.
+        </p>
+        <p>The idea is simple. The "player" is fixed to the center of the viewport and does not move. The "map" is larger than the viewport, which has its overflow property set to "hidden" to occlude the rest of the map. When a movement input is received, the map itself is shifted in the opposite direction. This gives the illusion that the player is moving.</p>
+    </div>
+    <div>
+        <%- include('partials/post-image', {imgpath: "/image/posts/2026-06-07_game-jam-d-movement/movement-demo.png", caption: "The demo running in a web browser"}) %>
+
+    </div>
+
+</div>
+<div class="post-content-one-item">
+        <p>This demo relies on math and coordinate positioning as the backbone for it all, with the grid size as the foundation (it's 32px here). "Cells" are an abstraction of coordinate positions so a human can reason about them easier. A game object holds information about each cell, such as collision information. When movement happens, the attempted move is calculated from coordinate positions, translated into a cell name, and the corresponding game object property is checked.</p>
+        <p>And that's it. It was a tiny project that I completed over two sessions, and it felt good to move this from idea stage to prototype. I may or may not add on to it in the future; maybe I'll port it over to a SPA framework and write scripts to generate the game objects from images.</p>
+
+        <p>If you're interested in seeing the demo in action, feel free to pull it from <a href="https://github.com/andymaul123/jam-2d-movement" target="_blank">Github</a>.</p>
+</div>

@@ -6,7 +6,17 @@
     <author>
         <name>Andrew Maul</name>
     </author>
-    <updated>2026-02-04T17:21:49.731Z</updated>
+    <updated>2026-06-07T20:57:36.585Z</updated>
+    <entry>
+        <title>Game Jam: 2d Movement</title>
+        <link href="https://andrewmaul.com/posts/2026-06-07_game-jam-movement" />
+        <id>tag:andrewmaul.com,2026-06-07:/posts/2026-06-07_game-jam-movement</id>
+        <updated>2026-06-07T20:57:36.585Z</updated>
+        <summary>Exploring game development in web tech, this time around focusing on 2d movement.</summary>
+        <content type="html">
+            <p>Exploring game development in web tech, this time around focusing on 2d movement.</p>
+        </content>
+    </entry>
     <entry>
         <title>Learning Soft Pastels</title>
         <link href="https://andrewmaul.com/posts/2026-02-04_learning-soft-pastels" />

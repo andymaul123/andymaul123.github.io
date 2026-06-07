@@ -6,6 +6,6 @@ module.exports = {
   site: {
     title: 'Andrew Maul',
     year: 2026,
-    latest: '2026-02-04_learning-soft-pastels'
+    latest: '2026-06-07_game-jam-movement'
   }
 };
