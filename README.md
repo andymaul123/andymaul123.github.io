@@ -7,7 +7,7 @@ View the live site at [www.andrewmaul.com](https://www.andrewmaul.com/).
 ## Development
 - `npm install`
 - `npm run start` to start the local server at port 3000
-- `npm run css` to compile SASS
+- `npm run css` in a second tab to
 - `npm run build` to compile the site into the `/public` directory
 - `npm run new-post` to initialize a wizard that scaffolds the creating of a new post.
 

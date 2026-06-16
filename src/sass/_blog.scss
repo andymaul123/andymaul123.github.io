@@ -12,11 +12,11 @@
     margin-bottom: 0;
 }
 
-.archives {
+.posts {
     margin-top: 6rem;
 }
 
-.archives li {
+.posts li {
     border-bottom: 1px solid $accentGray;
     list-style: none;
     margin-bottom: 2rem;
@@ -26,7 +26,7 @@
 .post-date {
     color: $white;
     font-family: $title;
-    font-size: 1.7rem;
+    font-size: 2rem;
     letter-spacing: 0.1rem;
     margin-bottom: 2rem;
 }
@@ -130,4 +130,25 @@ code {
     left: 0;
     width: 100%;
     height: 100%;
+}
+
+// Archives page
+
+.all-posts {
+    display: flex;
+    flex-direction: column;
+    @media (min-width: 750px) {
+        flex-wrap: wrap;
+        max-height: 70vh;
+    }
+}
+.all-posts li {
+    display: block;
+    border-bottom: 1px solid $accentGray;
+    list-style: none;
+    margin-bottom: 2rem;
+    padding-bottom: 2rem;
+    @media (min-width: 750px) {
+        width: 45%;
+    }
 }

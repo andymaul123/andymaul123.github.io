@@ -4,9 +4,9 @@
   "description": "GitHub Pages Website",
   "main": "index.js",
   "scripts": {
-    "start": "sass src/sass/index.scss src/assets/css/styles.css && nanogen start",
-    "build": "nanogen build && node scripts/rss.mjs",
-    "css": "sass src/sass/index.scss src/assets/css/styles.css",
+    "start": "nanogen start",
+    "build": "sass --quiet src/sass/index.scss src/assets/css/styles.css && nanogen build && node scripts/rss.mjs",
+    "css": "sass --quiet --watch src/sass/index.scss src/assets/css/styles.css",
     "rss": "node scripts/rss.mjs",
     "new-post": "node scripts/new-post.mjs"
   },

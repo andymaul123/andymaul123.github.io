@@ -24,7 +24,7 @@
             <a href="/" class="no-underline shadows ">home</a>
             <a href="/projects" class="no-underline shadows ">projects</a>
             <a href="/art" class="no-underline shadows ">art</a>
-            <a href="/posts/2026-06-07_game-jam-movement" class="no-underline shadows active">blog</a>
+            <a href="/posts/2026-06-07_game-jam-movement" class="no-underline shadows ">blog</a>
             <a href="/resume" class="no-underline shadows ">résumé</a>
         </div>
     </div>
@@ -38,45 +38,16 @@
     <a href="/" class="no-underline shadows ">home</a>
     <a href="/projects" class="no-underline shadows ">projects</a>
     <a href="/art" class="no-underline shadows ">art</a>
-    <a href="/posts/2026-06-07_game-jam-movement" class="no-underline shadows active">blog</a>
+    <a href="/posts/2026-06-07_game-jam-movement" class="no-underline shadows ">blog</a>
     <a href="/resume" class="no-underline shadows ">résumé</a>
 </nav>
-        </div>
-      </div>
-        <div class="row">
-            <div class="nine columns blog">
-                
-                <h1>Game Jam: 2d Movement</h1>
-                <div class="post-date right">June 2026</div>
-                <div>
-<div class="post-content-two-items">
-    <div>
-        <p>
-            <span class="dropcap">E</span>very now and then I want to do a tiny project, something I can sit down and finish in one or two sessions. I used to participate in <a href="https://en.wikipedia.org/wiki/Game_jam" target="_blank">game jams</a> when I was younger, and really enjoyed them. PlayStation does a hackathon once a year, too, and I joined last year. I've also had this idea bouncing around in my head for how to approach 2d movement within the constraints of traditional web paradigms. That is to say: the player sends an input, the computer responds with an output - not running a full game loop in JavaScript.
-        </p>
-        <p>The idea is simple. The "player" is fixed to the center of the viewport and does not move. The "map" is larger than the viewport, which has its overflow property set to "hidden" to occlude the rest of the map. When a movement input is received, the map itself is shifted in the opposite direction. This gives the illusion that the player is moving.</p>
-    </div>
-    <div>
-        <a href="/image/posts/2026-06-07_game-jam-d-movement/movement-demo.png" class="post-image  full">
-    <img src="/image/posts/2026-06-07_game-jam-d-movement/movement-demo.png" class="post-image-picture outline"/>
-    <span class="post-image-caption">The demo running in a web browser</span>
-</a>
+          
 
-
-    </div>
-
-</div>
-<div class="post-content-one-item">
-        <p>This demo relies on math and coordinate positioning as the backbone for it all, with the grid size as the foundation (it's 32px here). "Cells" are an abstraction of coordinate positions so a human can reason about them easier. A game object holds information about each cell, such as collision information. When movement happens, the attempted move is calculated from coordinate positions, translated into a cell name, and the corresponding game object property is checked.</p>
-        <p>And that's it. It was a tiny project that I completed over two sessions, and it felt good to move this from idea stage to prototype. I may or may not add on to it in the future; maybe I'll port it over to a SPA framework and write scripts to generate the game objects from images.</p>
-
-        <p>If you're interested in seeing the demo in action, feel free to pull it from <a href="https://github.com/andymaul123/jam-2d-movement" target="_blank">Github</a>.</p>
-</div></div>
-            </div>
-            
-            <div class="three columns posts">
-                <h2>Recent Posts</h2>
-                <ul>
+<h1>The Archives</h1>
+<section>
+    <div class="row">
+        <div class="twelve columns">
+            <ul class="all-posts">
     <li><a href="/posts/2026-06-07_game-jam-movement">Game Jam: 2d Movement</a><br /><em>Jun 2026</em></li>
     <li><a href="/posts/2026-02-04_learning-soft-pastels">Learning Soft Pastels</a><br /><em>Feb 2026</em></li>
     <li><a href="/posts/2025-11-08_recursive-probability">Recursive Probability</a><br /><em>Nov 2025</em></li>
@@ -88,10 +59,16 @@
     <li><a href="/posts/2023-10-31_fakemon-inktober">Pixel Art: Fakemon</a><br /><em>Oct 2023</em></li>
     <li><a href="/posts/2023-07-01_art-jam-experiments-with-pixelization">Art Jam: Experiments with
             Pixelization</a><br /><em>Jul 2023</em></li>
-    <li><a href="/archives">Older Blog Posts</a></li>
+    <li><a href="/posts/2022-06-19_studying-the-masters">Studying the Masters</a><br /><em>Jun 2022</em></li>
+    <li><a href="/posts/2019-06-26_adventure-js">Adventure.js</a><br /><em>Jun 2019</em></li>
+    <li><a href="/posts/2019-02-27_banner-generator">EDH Banner Generator</a><br /><em>Feb 2019</em></li>
 </ul>
-            </div>
         </div>
+    </div>
+</section>
+
+        </div>
+      </div>
     </section>
   </div>
   
@@ -108,6 +85,8 @@
     <a href="/feed.xml" target="new" class="no-underline footer-link" id="rss-button"><span class="icon-rss2 icon"></span></a>
   </div>
 </footer>
+
+
 
 
   <!-- Prism.js syntax highlighting -->

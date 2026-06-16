@@ -31,3 +31,20 @@
     border-color: $accentGray;
     border-width: 1px;
 }
+.error {
+    h1,p {
+        z-index: 2;
+        position: relative;
+    }
+    .background {
+        color: #0f0f0f;
+        font-family: $body;
+        font-size: 50rem;
+        display: flex;
+        justify-content: center;
+        margin-top: -30rem;
+        z-index: 1;
+        position: relative;
+        pointer-events: none;
+    }
+}
