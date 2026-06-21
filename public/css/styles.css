@@ -946,8 +946,7 @@ body {
   background-color: #121212;
   color: #dcdcdc;
   font-family: "Cabin", sans-serif;
-  font-size: 1.6rem;
-  line-height: 1.5;
+  font-size: 1.7rem;
   position: relative;
 }
 
@@ -995,12 +994,12 @@ b, strong {
 /* Links
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 a {
-  color: #ffff99;
+  color: #32de84;
   font-family: "Cabin", sans-serif;
   text-decoration: none;
 }
 a:hover {
-  color: #99ccff;
+  color: #ffff99;
   transition: all 0.5s linear;
 }
 
@@ -1038,7 +1037,7 @@ a:hover {
   background: #000;
   border-radius: 5px;
   border: 1px solid #333;
-  color: #ffff99;
+  color: #32de84;
   font-family: "Cascadia Code", Courier, monospace;
   font-size: 2rem;
   padding: 5px 10px;
@@ -1088,6 +1087,12 @@ a:hover {
   .desktop-nav a {
     margin: 0;
   }
+}
+.desktop-nav .caret {
+  display: none;
+}
+.desktop-nav .active .caret {
+  display: inline;
 }
 
 .mobile-header {
@@ -1295,6 +1300,7 @@ a:hover {
   object-fit: cover;
   object-position: 0 0;
   width: 100%;
+  margin-bottom: -2px;
 }
 @media (min-width: 1024px) {
   .featured-post-card-image {
@@ -1304,8 +1310,8 @@ a:hover {
 
 .featured-post-card-title {
   background-color: #333;
-  margin-top: -0.6rem;
   padding: 1rem;
+  margin-top: -0.6rem;
 }
 
 .writing-entries-wrapper {
@@ -1355,6 +1361,7 @@ a:hover {
   list-style: none;
   margin-bottom: 2rem;
   padding-bottom: 2rem;
+  font-weight: 500;
 }
 
 .post-date {
@@ -1574,13 +1581,13 @@ code {
   padding-bottom: 0.5rem;
 }
 .resume h3, .resume h3 a {
-  color: #ffff99;
+  color: #32de84;
   font-family: "Crimson Pro", serif;
   font-size: 1.8rem;
   margin: 0 0 1rem 0;
 }
 .resume h3 a:hover {
-  color: #99ccff;
+  color: #ffff99;
   transition: all 0.5s linear;
 }
 .resume h4 {
@@ -1665,7 +1672,7 @@ code {
 }
 
 .active {
-  color: #99ccff;
+  color: #ffff99;
 }
 
 .clear {

@@ -21,10 +21,11 @@
     list-style: none;
     margin-bottom: 2rem;
     padding-bottom: 2rem;
+    font-weight: 500;
 }
 
 .post-date {
-    color: $white;
+    color: $headerColor;
     font-family: $title;
     font-size: 2rem;
     letter-spacing: 0.1rem;
@@ -70,7 +71,7 @@ code {
 }
 
 .post-image-caption {
-    color: $textGray;
+    color: $fontColor;
     font-style: italic;
 }
 

@@ -80,14 +80,14 @@
         padding-bottom: 0.5rem;
     }
     h3, h3 a {
-        color: $yellow;
+        color: $link;
         font-family: $title;
         font-size: 1.8rem;
         margin: 0 0 1rem 0;
     }
     h3 a {
         &:hover {
-            color: $blue;
+            color: $linkHover;
             transition: all 0.5s linear;
         }
     }
