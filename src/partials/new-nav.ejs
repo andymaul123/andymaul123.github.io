@@ -1,7 +1,17 @@
 <nav class="desktop-nav">
-    <a href="/" class="no-underline shadows <%= page.title == 'home' ? 'active' : '' %>">home</a>
-    <a href="/projects" class="no-underline shadows <%= page.title == 'projects' ? 'active' : '' %>">projects</a>
-    <a href="/art" class="no-underline shadows <%= page.title == 'art' ? 'active' : '' %>">art</a>
-    <a href="/posts/<%= site.latest %>" class="no-underline shadows <%= page.layout == 'post' ? 'active' : '' %>">blog</a>
-    <a href="/resume" class="no-underline shadows <%= page.title == 'resume' ? 'active' : '' %>">résumé</a>
+  <a href="/" class="no-underline shadows <%= page.nav == 'home' ? 'active' : '' %>"
+    ><span class="caret">> </span>home</a
+  >
+  <a href="/projects" class="no-underline shadows <%= page.nav == 'projects' ? 'active' : '' %>"
+    ><span class="caret">> </span>projects</a
+  >
+  <a href="/art" class="no-underline shadows <%= page.nav == 'art' ? 'active' : '' %>"
+    ><span class="caret">> </span>art</a
+  >
+  <a href="/posts/<%= site.latest %>" class="no-underline shadows <%= page.nav == 'blog' ? 'active' : '' %>"
+    ><span class="caret">> </span>blog</a
+  >
+  <a href="/resume" class="no-underline shadows <%= page.nav == 'resume' ? 'active' : '' %>"
+    ><span class="caret">> </span>résumé</a
+  >
 </nav>

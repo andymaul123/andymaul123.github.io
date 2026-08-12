@@ -945,9 +945,8 @@ there.
 body {
   background-color: #121212;
   color: #dcdcdc;
-  font-family: "Muli", sans-serif;
-  font-size: 1.6rem;
-  line-height: 1.5;
+  font-family: "Cabin", sans-serif;
+  font-size: 1.7rem;
   position: relative;
 }
 
@@ -976,17 +975,14 @@ blockquote {
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 h1, h2, h3, h4, h5, h6 {
   color: #fff;
-  font-family: "Ovo", serif;
+  font-family: "Crimson Pro", serif;
   letter-spacing: normal;
   margin-bottom: 3rem;
 }
 
 p {
-  font-family: "Muli", sans-serif;
-  font-size: 1.5rem;
-  font-weight: 300;
-  letter-spacing: 0.02rem;
-  line-height: 2.1rem;
+  font-family: "Cabin", sans-serif;
+  font-size: 1.7rem;
   margin-bottom: 3rem;
   text-align: justify;
 }
@@ -998,12 +994,12 @@ b, strong {
 /* Links
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 a {
-  color: #ffff99;
-  font-family: "Muli", sans-serif;
+  color: #32de84;
+  font-family: "Cabin", sans-serif;
   text-decoration: none;
 }
 a:hover {
-  color: #99ccff;
+  color: #ffff99;
   transition: all 0.5s linear;
 }
 
@@ -1041,8 +1037,8 @@ a:hover {
   background: #000;
   border-radius: 5px;
   border: 1px solid #333;
-  color: #ffff99;
-  font-family: "Courier New", Courier, monospace;
+  color: #32de84;
+  font-family: "Cascadia Code", Courier, monospace;
   font-size: 2rem;
   padding: 5px 10px;
   text-align: center;
@@ -1081,7 +1077,7 @@ a:hover {
   }
 }
 .desktop-nav a {
-  font-family: "Muli", sans-serif;
+  font-family: "Cabin", sans-serif;
   font-size: 2rem;
   margin: 0 0 1rem 0;
   text-decoration: none;
@@ -1091,6 +1087,12 @@ a:hover {
   .desktop-nav a {
     margin: 0;
   }
+}
+.desktop-nav .caret {
+  display: none;
+}
+.desktop-nav .active .caret {
+  display: inline;
 }
 
 .mobile-header {
@@ -1298,6 +1300,7 @@ a:hover {
   object-fit: cover;
   object-position: 0 0;
   width: 100%;
+  margin-bottom: -2px;
 }
 @media (min-width: 1024px) {
   .featured-post-card-image {
@@ -1307,8 +1310,8 @@ a:hover {
 
 .featured-post-card-title {
   background-color: #333;
-  margin-top: -0.6rem;
   padding: 1rem;
+  margin-top: -0.6rem;
 }
 
 .writing-entries-wrapper {
@@ -1324,7 +1327,7 @@ a:hover {
   width: 48%;
 }
 .writing-entries-wrapper .writing-entry h2, .writing-entries-wrapper .writing-entry h2 a {
-  font-family: "Ovo", serif;
+  font-family: "Crimson Pro", serif;
   font-size: 2rem;
   margin: 0;
   padding: 0;
@@ -1339,7 +1342,7 @@ a:hover {
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 .dropcap {
   float: left;
-  font-family: "Ovo", serif;
+  font-family: "Crimson Pro", serif;
   font-size: 9rem;
   line-height: 6rem;
   padding: 0 1rem 0 0;
@@ -1349,21 +1352,22 @@ a:hover {
   margin-bottom: 0;
 }
 
-.archives {
+.posts {
   margin-top: 6rem;
 }
 
-.archives li {
+.posts li {
   border-bottom: 1px solid #333;
   list-style: none;
   margin-bottom: 2rem;
   padding-bottom: 2rem;
+  font-weight: 500;
 }
 
 .post-date {
   color: #fff;
-  font-family: "Ovo", serif;
-  font-size: 1.7rem;
+  font-family: "Crimson Pro", serif;
+  font-size: 2rem;
   letter-spacing: 0.1rem;
   margin-bottom: 2rem;
 }
@@ -1467,6 +1471,30 @@ code {
   height: 100%;
 }
 
+.all-posts {
+  display: flex;
+  flex-direction: column;
+}
+@media (min-width: 750px) {
+  .all-posts {
+    flex-wrap: wrap;
+    max-height: 70vh;
+  }
+}
+
+.all-posts li {
+  display: block;
+  border-bottom: 1px solid #333;
+  list-style: none;
+  margin-bottom: 2rem;
+  padding-bottom: 2rem;
+}
+@media (min-width: 750px) {
+  .all-posts li {
+    width: 45%;
+  }
+}
+
 /* Resume Page
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 .resume {
@@ -1525,7 +1553,7 @@ code {
 }
 .resume .sub-head {
   color: #dcdcdc;
-  font-family: "Courier New", Courier, monospace;
+  font-family: "Cascadia Code", Courier, monospace;
   font-size: 1.6rem;
   margin-bottom: 2rem;
 }
@@ -1548,24 +1576,25 @@ code {
 .resume h2 {
   border-bottom: 0.1rem solid #333;
   color: #fff;
-  font-family: "Ovo", serif;
-  font-size: 2rem;
+  font-family: "Crimson Pro", serif;
+  font-size: 2.5rem;
   padding-bottom: 0.5rem;
 }
-.resume h3, .resume h3 a {
-  color: #ffff99;
-  font-family: "Ovo", serif;
-  font-size: 1.8rem;
+.resume h3,
+.resume h3 a {
+  color: #32de84;
+  font-family: "Crimson Pro", serif;
+  font-size: 2.5rem;
   margin: 0 0 1rem 0;
 }
 .resume h3 a:hover {
-  color: #99ccff;
+  color: #ffff99;
   transition: all 0.5s linear;
 }
 .resume h4 {
   color: #dcdcdc;
-  font-family: "Ovo", serif;
-  font-size: 1.8rem;
+  font-family: "Crimson Pro", serif;
+  font-size: 2rem;
   font-weight: 700;
   margin: 0 0 1rem 1rem;
 }
@@ -1610,6 +1639,10 @@ code {
   }
 }
 
+.section-body {
+  margin-top: 3rem;
+}
+
 .print-download {
   margin-bottom: 1rem;
   text-align: right;
@@ -1644,7 +1677,7 @@ code {
 }
 
 .active {
-  color: #99ccff;
+  color: #ffff99;
 }
 
 .clear {
@@ -1655,6 +1688,22 @@ code {
   border-bottom: solid;
   border-color: #333;
   border-width: 1px;
+}
+
+.error h1, .error p {
+  z-index: 2;
+  position: relative;
+}
+.error .background {
+  color: #0f0f0f;
+  font-family: "Cabin", sans-serif;
+  font-size: 50rem;
+  display: flex;
+  justify-content: center;
+  margin-top: -30rem;
+  z-index: 1;
+  position: relative;
+  pointer-events: none;
 }
 
 /* PrismJS 1.15.0

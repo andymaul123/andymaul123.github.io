@@ -1,10 +1,41 @@
 ---
 layout: default
 title: writing
+nav: projects
 ---
 
 <h1 class="bottom-border">Short Fiction</h1>
+<p>A collection of short stories taking place in the fantastical land of Eventide. I hope to one day combine these into an anthology and publish it.</p>
 <div class="writing-entries-wrapper">
-    <%- include('partials/writing-entry', {title: "A Taste of Adventure", url: "https://docs.google.com/document/d/1OMpPA03fMp-yq8eZ1GKfg-2m2WgsX4AR11tEjertgx0/edit?usp=sharing", genre: "Sword & Sorcery", readtime: "15", blurb: "A man meets an unlikely savior in the form of the 'greatest chef in the land'. August 2020."}) %>
-    <%- include('partials/writing-entry', {title: "Dark Heart of the Woods", url: "https://docs.google.com/document/d/1uBgWfIvFRBHvQqTRF_tRf_hJeHnmWQoQA9BYQ90Se4Y/edit?usp=sharing", genre: "Fantasy Horror", readtime: "25", blurb: "A con goes wrong when Janos, posing as a wine merchant, discovers something dark within the abbey. February 2024."}) %>
+    <%- include('partials/writing-entry', {
+        title: "A Taste of Adventure", 
+        url: "/pdfs/taste-of-adventure.pdf", 
+        genre: "Sword & Sorcery", 
+        readtime: "15", 
+        year: "2020",
+        blurb: "A man meets an unlikely savior in the form of the 'greatest chef in the land'."}) %>
+    
+    <%- include('partials/writing-entry', {
+        title: "Dark Heart of the Woods", 
+        url: "/pdfs/dark-heart-of-the-woods.pdf", 
+        genre: "Fantasy Horror", 
+        readtime: "25", 
+        year: "2024",
+        blurb: "A con goes wrong when Janos, posing as a wine merchant, explores the Midnight Abbey."}) %>
+
+    <%- include('partials/writing-entry', {
+        title: "The Warlock", 
+        url: "/pdfs/the-warlock.pdf", 
+        genre: "Sword & Sorcery", 
+        readtime: "20", 
+        year: "2024",
+        blurb: "A mercenary bears witness to a dire figure of legend."}) %>
+
+    <%- include('partials/writing-entry', {
+        title: "Lions of Pine Gorge", 
+        url: "/pdfs/lions-of-pine-gorge.pdf", 
+        genre: "Fantasy Horror", 
+        readtime: "72", 
+        year: "2026",
+        blurb: "The Tanner siblings grapple with the cost of leaving their settlement in the Druid-protected Pine Gorge."}) %>
 </div>

@@ -6,17 +6,30 @@ $black: #000;
 $blue: #99ccff;
 $yellow: #ffff99;
 $darkGray: #121212;
-$accentGray: #333;
+$darkGray2: #333;
 $textGray: #dcdcdc;
 $commentGray: #555;
 $resumeBlack: #111;
 $resumeGray: #222;
 $codeBlockGray: #202020;
 $codeBlockGreen: #77ddaa;
+$emerald: #50C878;
+$paleGreen: #98FB98;
+$androidGreen: #32de84;
 
-$monospace: "Courier New", Courier, monospace;
-$body: 'Muli', sans-serif;
-$title: 'Ovo', serif;
+$background: $darkGray;
+$link: $androidGreen;
+$linkHover: $yellow;
+$linkActive: $yellow;
+$fontColor: $textGray;
+$headerColor: $white;
+$accentGray: $darkGray2;
+
+$monospace: "Cascadia Code", Courier, monospace;
+$body: 'Cabin', sans-serif;
+$title: 'Crimson Pro', serif;
+
+$fontSize: 1.7rem;
 
 $flow-bottom: 3rem;
 $flow-bottom-big: 5rem;

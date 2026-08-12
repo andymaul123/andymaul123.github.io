@@ -18,11 +18,12 @@ const newPostPath = path.join(__dirname, '../src/pages/posts', `${postFileName}.
 const newPostAssetPath = path.join(__dirname, '../src/assets/image/posts', postFileName);
 const siteConfigPath = path.join(__dirname, '../', 'site.config.js');
 const siteConfigData = `module.exports = {\n  build: {\n    srcPath: './src',\n    outputPath: './public'\n  },\n  site: {\n    title: 'Andrew Maul',\n    year: ${postDate.getFullYear()},\n    latest: '${postFileName}'\n  }\n};\n`;
-const archiveDataPath = path.join(__dirname, '../src/data', `archives.json`);
-const archivePartialPath = path.join(__dirname, '../src/partials', `archives.ejs`);
+const postsDataPath = path.join(__dirname, '../src/data', `posts.json`);
+const postsBarPartialPath = path.join(__dirname, '../src/partials', `post-side-bar.ejs`);
+const archivesPartialPath = path.join(__dirname, '../src/partials', `archives-all-posts.ejs`);
 const feedPath = path.join(__dirname, '../src/pages', `feed.xml`);
 // Data structures
-const newArchiveItem = {
+const newPostItem = {
     title: `${postTitle}`,
     path: `/posts/${postFileName}`,
     date: `${postDate.toLocaleString('default', { month: 'short' })} ${postDate.getFullYear()}`,
@@ -30,6 +31,8 @@ const newArchiveItem = {
     updated: `${postDate.toISOString()}`,
     summary: `${postSummary}`
 };
+
+const numberOfPostsInSidebar = 9;
 
 const rssBegin = `<?xml version="1.0" encoding="UTF-8"?><feed xmlns="http://www.w3.org/2005/Atom"><title>Andrew Maul - Blog</title><link href="https://andrewmaul.com"/><id>tag:andrewmaul.com,2026-02-01:/root</id><author><name>Andrew Maul</name></author>`;
 
@@ -40,10 +43,15 @@ function createListItem(data) {
     return `<li><a href="${data.path}">${data.title}</a><br /><em>${data.date}</em></li>`;
 }
 
-function createListBlob(archives) {
+function createListBlob(posts, limiter) {
     let blob = '';
-    for (let index = 0; index < archives.length; index++) {
-        blob += createListItem(archives[index]);
+    const maximumItems = limiter ? limiter : posts.length;
+    const terminalItem = `<li><a href="/archives">All Blog Posts</a></li>`;
+    for (let index = 0; index < maximumItems; index++) {
+        blob += createListItem(posts[index]);
+    }
+    if(limiter) {
+        blob += terminalItem;
     }
     return `<ul>${blob}</ul>`;
 }
@@ -51,10 +59,10 @@ function createListBlob(archives) {
 function createFeedItem(data) {
     return `<entry><title>${data.title}</title><link href="https://andrewmaul.com${data.path}"/><id>tag:andrewmaul.com,${data.updated.split('T')[0]}:${data.path}</id><updated>${data.updated}</updated><summary>${data.summary}</summary><content type="html"><p>${data.summary}</p></content></entry>`;
 }
-function createRssBlob(archives) {
+function createRssBlob(posts) {
     let blob = '';
-    for (let index = 0; index < archives.length; index++) {
-        blob += createFeedItem(archives[index]);
+    for (let index = 0; index < posts.length; index++) {
+        blob += createFeedItem(posts[index]);
     }
     return `${rssBegin}<updated>${postDate.toISOString()}</updated>${blob}${rssEnd}`;
 }
@@ -73,17 +81,21 @@ try {
     writeFileSync(siteConfigPath, siteConfigData, 'utf8', () => {});
 
     console.log(`Updating archives data...`);
-    const archiveData = readFileSync(archiveDataPath, 'utf8', (err, data) => {return data;});
-    const parsedData = JSON.parse(archiveData);
-    parsedData.archives.unshift(newArchiveItem);
-    writeFileSync(archiveDataPath, JSON.stringify(parsedData), 'utf8', () => {});
+    const postsData = readFileSync(postsDataPath, 'utf8', (err, data) => {return data;});
+    const parsedData = JSON.parse(postsData);
+    parsedData.posts.unshift(newPostItem);
+    writeFileSync(postsDataPath, JSON.stringify(parsedData), 'utf8', () => {});
     
+    console.log(`Updating posts side bar partial/HTML...`);
+    const postsHTML = createListBlob(parsedData.posts, numberOfPostsInSidebar);
+    writeFileSync(postsBarPartialPath, postsHTML, 'utf8', () => {});
+
     console.log(`Updating archives partial/HTML...`);
-    const archiveHTML = createListBlob(parsedData.archives);
-    writeFileSync(archivePartialPath, archiveHTML, 'utf8', () => {});
+    const archivesHTML = createListBlob(parsedData.posts, null);
+    writeFileSync(archivesPartialPath, postsHTML, 'utf8', () => {});
 
     console.log(`Updating RSS feed XML...`);
-    const feedXML = createRssBlob(parsedData.archives);
+    const feedXML = createRssBlob(parsedData.posts);
     writeFileSync(feedPath, feedXML, 'utf8', () => {});
 
 } catch (error) {
